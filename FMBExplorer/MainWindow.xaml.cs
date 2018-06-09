@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
+using System.Xml.Linq;
 
 namespace FMBExplorer
 {
@@ -44,6 +45,10 @@ namespace FMBExplorer
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             string[] filePaths = Directory.GetFiles(vm.CurrentFolder, "*.xml");
+
+            ProgressBar1.Maximum = filePaths.Length + 1;
         }
+
+
     }
 }
