@@ -64,8 +64,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="FormsElement\Block.cs" />
-    <Compile Include="FormsElement\FMB.cs" />
+    <Compile Include="FormsElement\FormModule.cs" />
     <Compile Include="FMXParser.cs" />
+    <Compile Include="FormsElement\Item.cs" />
+    <Compile Include="FormsElement\Trigger.cs" />
     <Compile Include="MainViewModel.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
