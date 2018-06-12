@@ -12,7 +12,7 @@ namespace FMBExplorer
 {
     public static class FMXParser
     {
-        public static async Task ProcessFormsXML(string fileName)
+        public static void ProcessFormsXML(string fileName)
         {
 
             //XNamespace ns = "http://xmlns.oracle.com/Forms";
@@ -21,9 +21,9 @@ namespace FMBExplorer
 
             XElement fmx = XElement.Load(fileName);
 
-            //IEnumerable<Block> blocks = BlockParser.GetBlocks(ns, fmx);
+            IEnumerable<Block> blocks = BlockParser.GetBlocks(ns, fmx);
 
-            BlockParser.GetBlocks(ns, fmx).ToList<Block>().ForEach(blockItem => {
+            blocks.ToList<Block>().ForEach(blockItem => {
                 XElement block = (from el in fmx.Descendants(ns + "Block")
                                   where blockItem.Name == el.Attribute("Name").Value
                                   select el).First();
@@ -31,19 +31,6 @@ namespace FMBExplorer
                 IEnumerable<Item> items = ItemParser.GetItems(ns, block);
                 blockItem.items.AddRange(items);
             });
-
-            /*foreach (Block blockItem in blocks)
-            {
-                XElement block = (from el in fmx.Descendants(ns + "Block")
-                                  where blockItem.Name == el.Attribute("Name").Value
-                                  select el).First();
-
-                IEnumerable<Item> items = ItemParser.GetItems(ns, block);
-
-                blockItem.items.AddRange(items);
-            }
-            */
-            //blocks.
         }
 
 

@@ -10,7 +10,7 @@ namespace UnitTestProject
         [TestMethod]
         public void TestGettingBlocks()
         {
-            FMXParser.ProcessFormsXML(@"e:\KK.NET\FMB\KOD_fmb.xml");
+            FMXParser.ProcessFormsXML(@"\Resources\KOD_fmb.xml");
         }
     }
 }

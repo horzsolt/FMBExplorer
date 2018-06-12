@@ -47,6 +47,12 @@ namespace FMBExplorer
             string[] filePaths = Directory.GetFiles(vm.CurrentFolder, "*.xml");
 
             ProgressBar1.Maximum = filePaths.Length + 1;
+
+            filePaths.ToList<string>().ForEach(xmlFile => {
+                FMXParser.ProcessFormsXML(xmlFile);
+                    }
+            );
+
         }
 
 

@@ -102,5 +102,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resource\KK2_216_fmb.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\KOD_fmb.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
