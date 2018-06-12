@@ -30,6 +30,18 @@
             <Button Margin="10,0,10,10" Content="Scan" Width="110" Click="Button_Click_1"/>
         </StackPanel>
         <ProgressBar Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Name="ProgressBar1" HorizontalAlignment="Stretch" Margin="10,0,10,10"/>
-        <ListBox ItemsSource="{Binding FmxList}" Grid.Column="0" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10,0,10,10"/>
+        <ListBox ItemsSource="{Binding FmxList}" Grid.Column="0" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10,0,10,10">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition SharedSizeGroup="Key" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Margin="2" Text="{Binding Key}" Grid.Column="0"/>
+                    <!--    <TextBlock Margin="2" Text="{Binding Value.Name}" Grid.Column="1"/> -->
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Window>

@@ -63,6 +63,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="FormsElement\BaseFormsElement.cs" />
     <Compile Include="FormsElement\Block.cs" />
     <Compile Include="FormsElement\FormModule.cs" />
     <Compile Include="FormsParser\FMXParser.cs" />
@@ -104,10 +105,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Resource Include="Resource\KK2_216_fmb.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resource\KOD_fmb.xml" />
+    <None Include="Resource\KOD_fmb.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

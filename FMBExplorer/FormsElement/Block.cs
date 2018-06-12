@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FMBExplorer.FormsElement
 {
-    public class Block
+    public class Block : BaseFormsElement
     {
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
 
@@ -65,7 +65,7 @@ namespace FMBExplorer.FormsElement
 
             set
             {
-                _name = value;
+                _name = CleanXMLString(value);
                 PropertyChanged(this, new PropertyChangedEventArgs("Name"));
             }
         }
@@ -86,7 +86,7 @@ namespace FMBExplorer.FormsElement
 
             set
             {
-                _insertAllowed = value;
+                _insertAllowed = CleanXMLString(value);
                 PropertyChanged(this, new PropertyChangedEventArgs("InsertAllowed"));
             }
         }
@@ -102,7 +102,7 @@ namespace FMBExplorer.FormsElement
 
             set
             {
-                _deleteAllowed = value;
+                _deleteAllowed = CleanXMLString(value);
                 PropertyChanged(this, new PropertyChangedEventArgs("DeleteAllowed"));
             }
         }
@@ -123,7 +123,7 @@ namespace FMBExplorer.FormsElement
 
             set
             {
-                _updateAllowed = value;
+                _updateAllowed = CleanXMLString(value);
                 PropertyChanged(this, new PropertyChangedEventArgs("UpdateAllowed"));
             }
         }
@@ -139,7 +139,7 @@ namespace FMBExplorer.FormsElement
 
             set
             {
-                _queryDataSourceName = value;
+                _queryDataSourceName = CleanXMLString(value);
                 PropertyChanged(this, new PropertyChangedEventArgs("QueryDataSourceName"));
             }
         }
@@ -155,7 +155,7 @@ namespace FMBExplorer.FormsElement
 
             set
             {
-                _recordsDisplayCount = value;
+                _recordsDisplayCount = CleanXMLString(value);
                 PropertyChanged(this, new PropertyChangedEventArgs("RecordsDisplayCount"));
             }
         }
@@ -174,7 +174,7 @@ namespace FMBExplorer.FormsElement
 
             set
             {
-                _scrollbarTabPageName = value;
+                _scrollbarTabPageName = CleanXMLString(value);
                 PropertyChanged(this, new PropertyChangedEventArgs("ScrollbarTabPageName"));
             }
         }
@@ -194,7 +194,7 @@ namespace FMBExplorer.FormsElement
 
             set
             {
-                _nextNavigationBlockName = value;
+                _nextNavigationBlockName = CleanXMLString(value);
                 PropertyChanged(this, new PropertyChangedEventArgs("NextNavigationBlockName"));
             }
         }
@@ -214,7 +214,7 @@ namespace FMBExplorer.FormsElement
 
             set
             {
-                _queryAllRecords = value;
+                _queryAllRecords = CleanXMLString(value);
                 PropertyChanged(this, new PropertyChangedEventArgs("QueryAllRecords"));
             }
         }
@@ -235,7 +235,7 @@ namespace FMBExplorer.FormsElement
 
             set
             {
-                _keyMode = value;
+                _keyMode = CleanXMLString(value);
                 PropertyChanged(this, new PropertyChangedEventArgs("KeyMode"));
             }
         }
@@ -251,7 +251,7 @@ namespace FMBExplorer.FormsElement
 
             set
             {
-                _scrollbarCanvasName = value;
+                _scrollbarCanvasName = CleanXMLString(value);
                 PropertyChanged(this, new PropertyChangedEventArgs("ScrollbarCanvasName"));
             }
         }
@@ -267,7 +267,7 @@ namespace FMBExplorer.FormsElement
 
             set
             {
-                _orderByClause = value;
+                _orderByClause = CleanXMLString(value);
                 PropertyChanged(this, new PropertyChangedEventArgs("OrderByClause"));
             }
         }
@@ -287,7 +287,7 @@ namespace FMBExplorer.FormsElement
 
             set
             {
-                _previousNavigationBlockName = value;
+                _previousNavigationBlockName = CleanXMLString(value);
                 PropertyChanged(this, new PropertyChangedEventArgs("PreviousNavigationBlockName"));
             }
         }
@@ -307,7 +307,7 @@ namespace FMBExplorer.FormsElement
 
             set
             {
-                _lockMode = value;
+                _lockMode = CleanXMLString(value);
                 PropertyChanged(this, new PropertyChangedEventArgs("LockMode"));
             }
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FMBExplorer.FormsElement;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -27,8 +28,8 @@ namespace FMBExplorer
             }
         }
 
-        private string _fmxList;
-        public string FmxList
+        private Dictionary<string, FormModule> _fmxList;
+        public Dictionary<string, FormModule> FmxList
         {
 
             get

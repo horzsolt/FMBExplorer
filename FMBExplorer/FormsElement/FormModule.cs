@@ -7,9 +7,18 @@ using System.Threading.Tasks;
 
 namespace FMBExplorer.FormsElement
 {
-    public class FormModule
+    public class FormModule : BaseFormsElement
     {
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
+
+        public FormModule(string Name, string Title, string MaximumQueryTime, string MenuModule, String ConsoleWindow, List<Block> Blocks)
+        {
+            this.Name = Name;
+            this.MaximumQueryTime = MaximumQueryTime;
+            this.MenuModule = MenuModule;
+            this.ConsoleWindow = ConsoleWindow;
+            this.Blocks = Blocks;
+        }
 
         private string _name;
         public string Name
@@ -22,7 +31,7 @@ namespace FMBExplorer.FormsElement
 
             set
             {
-                _name = value;
+                _name = CleanXMLString(value);
                 PropertyChanged(this, new PropertyChangedEventArgs("Name"));
             }
         }
@@ -38,7 +47,7 @@ namespace FMBExplorer.FormsElement
 
             set
             {
-                _title = value;
+                _title = CleanXMLString(value);
                 PropertyChanged(this, new PropertyChangedEventArgs("Title"));
             }
         }
@@ -54,7 +63,7 @@ namespace FMBExplorer.FormsElement
 
             set
             {
-                _maximumQueryTime = value;
+                _maximumQueryTime = CleanXMLString(value);
                 PropertyChanged(this, new PropertyChangedEventArgs("MaximumQueryTime"));
             }
         }
@@ -70,7 +79,7 @@ namespace FMBExplorer.FormsElement
 
             set
             {
-                _menuModule = value;
+                _menuModule = CleanXMLString(value);
                 PropertyChanged(this, new PropertyChangedEventArgs("MenuModule"));
             }
         }
@@ -86,11 +95,11 @@ namespace FMBExplorer.FormsElement
 
             set
             {
-                _consoleWindowe = value;
+                _consoleWindowe = CleanXMLString(value);
                 PropertyChanged(this, new PropertyChangedEventArgs("ConsoleWindow"));
             }
         }
 
-        public List<Block> blocks { get; set; }
+        public List<Block> Blocks { get; set; }
     }
 }

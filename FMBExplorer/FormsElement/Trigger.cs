@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FMBExplorer.FormsElement
 {
-    public class Trigger
+    public class Trigger : BaseFormsElement
     {
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
 
@@ -28,7 +28,7 @@ namespace FMBExplorer.FormsElement
 
             set
             {
-                _name = value;
+                _name = CleanXMLString(value);
                 PropertyChanged(this, new PropertyChangedEventArgs("Name"));
             }
         }
@@ -44,7 +44,7 @@ namespace FMBExplorer.FormsElement
 
             set
             {
-                _triggerText = value;
+                _triggerText = CleanXMLString(value);
                 PropertyChanged(this, new PropertyChangedEventArgs("TriggerText"));
             }
         }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -25,7 +26,7 @@ namespace FMBExplorer
         public MainWindow()
         {
             InitializeComponent();
-            vm.CurrentFolder = System.AppDomain.CurrentDomain.BaseDirectory;
+            vm.CurrentFolder = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Resource");
             DataContext = vm;
         }
 
@@ -46,12 +47,22 @@ namespace FMBExplorer
         {
             string[] filePaths = Directory.GetFiles(vm.CurrentFolder, "*.xml");
 
-            ProgressBar1.Maximum = filePaths.Length + 1;
+            ProgressBar1.Maximum = filePaths.Length;
 
-            filePaths.ToList<string>().ForEach(xmlFile => {
-                FMXParser.ProcessFormsXML(xmlFile);
-                    }
-            );
+            try
+            {
+                vm.FmxList = new Dictionary<string, FormsElement.FormModule>();
+
+                filePaths.ToList<string>().ForEach(xmlFile =>
+                {
+                    vm.FmxList.Add(xmlFile, FMXParser.ProcessFormsXML(xmlFile));
+                    ProgressBar1.Value++;
+                }
+                );
+            } finally
+            {
+                ProgressBar1.Value = 0;
+            }
 
         }
 

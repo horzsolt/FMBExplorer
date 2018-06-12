@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FMBExplorer.FormsElement
 {
-    public class Item
+    public class Item : BaseFormsElement
     {
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
 
@@ -52,7 +52,7 @@ namespace FMBExplorer.FormsElement
 
             set
             {
-                _name = value;
+                _name = CleanXMLString(value);
                 PropertyChanged(this, new PropertyChangedEventArgs("Name"));
             }
         }
@@ -68,7 +68,7 @@ namespace FMBExplorer.FormsElement
 
             set
             {
-                _maximumLength = value;
+                _maximumLength = CleanXMLString(value);
                 PropertyChanged(this, new PropertyChangedEventArgs("MaximumLength"));
             }
         }
@@ -84,7 +84,7 @@ namespace FMBExplorer.FormsElement
 
             set
             {
-                _yPosition = value;
+                _yPosition = CleanXMLString(value);
                 PropertyChanged(this, new PropertyChangedEventArgs("YPosition"));
             }
         }
@@ -100,7 +100,7 @@ namespace FMBExplorer.FormsElement
 
             set
             {
-                _xPosition = value;
+                _xPosition = CleanXMLString(value);
                 PropertyChanged(this, new PropertyChangedEventArgs("XPosition"));
             }
         }
@@ -119,7 +119,7 @@ namespace FMBExplorer.FormsElement
 
             set
             {
-                _itemsDisplay = value;
+                _itemsDisplay = CleanXMLString(value);
                 PropertyChanged(this, new PropertyChangedEventArgs("ItemsDisplay"));
             }
         }
@@ -135,7 +135,7 @@ namespace FMBExplorer.FormsElement
 
             set
             {
-                _distanceBetweenRecords = value;
+                _distanceBetweenRecords = CleanXMLString(value);
                 PropertyChanged(this, new PropertyChangedEventArgs("DistanceBetweenRecords"));
             }
         }
@@ -151,7 +151,7 @@ namespace FMBExplorer.FormsElement
 
             set
             {
-                _width = value;
+                _width = CleanXMLString(value);
                 PropertyChanged(this, new PropertyChangedEventArgs("Width"));
             }
         }
@@ -171,7 +171,7 @@ namespace FMBExplorer.FormsElement
 
             set
             {
-                _canvasName = value;
+                _canvasName = CleanXMLString(value);
                 PropertyChanged(this, new PropertyChangedEventArgs("CanvasName"));
             }
         }
@@ -187,7 +187,7 @@ namespace FMBExplorer.FormsElement
 
             set
             {
-                _height = value;
+                _height = CleanXMLString(value);
                 PropertyChanged(this, new PropertyChangedEventArgs("Height"));
             }
         }
@@ -203,7 +203,7 @@ namespace FMBExplorer.FormsElement
 
             set
             {
-                _required = value;
+                _required = CleanXMLString(value);
                 PropertyChanged(this, new PropertyChangedEventArgs("Required"));
             }
         }
@@ -219,7 +219,7 @@ namespace FMBExplorer.FormsElement
 
             set
             {
-                _insertAllowed = value;
+                _insertAllowed = CleanXMLString(value);
                 PropertyChanged(this, new PropertyChangedEventArgs("InsertAllowed"));
             }
         }
@@ -235,7 +235,7 @@ namespace FMBExplorer.FormsElement
 
             set
             {
-                _deleteAllowed = value;
+                _deleteAllowed = CleanXMLString(value);
                 PropertyChanged(this, new PropertyChangedEventArgs("DeleteAllowed"));
             }
         }
@@ -256,7 +256,7 @@ namespace FMBExplorer.FormsElement
 
             set
             {
-                _updateAllowed = value;
+                _updateAllowed = CleanXMLString(value);
                 PropertyChanged(this, new PropertyChangedEventArgs("UpdateAllowed"));
             }
         }
@@ -275,7 +275,7 @@ namespace FMBExplorer.FormsElement
 
             set
             {
-                _itemType = value;
+                _itemType = CleanXMLString(value);
                 PropertyChanged(this, new PropertyChangedEventArgs("ItemType"));
             }
         }
@@ -291,7 +291,7 @@ namespace FMBExplorer.FormsElement
 
             set
             {
-                _prompt = value;
+                _prompt = CleanXMLString(value);
                 PropertyChanged(this, new PropertyChangedEventArgs("Prompt"));
             }
         }
@@ -307,7 +307,7 @@ namespace FMBExplorer.FormsElement
 
             set
             {
-                _tabPageName = value;
+                _tabPageName = CleanXMLString(value);
                 PropertyChanged(this, new PropertyChangedEventArgs("TabPageName"));
             }
         }
@@ -326,7 +326,7 @@ namespace FMBExplorer.FormsElement
 
             set
             {
-                _promptDisplayStyle = value;
+                _promptDisplayStyle = CleanXMLString(value);
                 PropertyChanged(this, new PropertyChangedEventArgs("PromptDisplayStyle"));
             }
         }
@@ -342,7 +342,7 @@ namespace FMBExplorer.FormsElement
 
             set
             {
-                _columnName = value;
+                _columnName = CleanXMLString(value);
                 PropertyChanged(this, new PropertyChangedEventArgs("ColumnName"));
             }
         }
@@ -358,7 +358,7 @@ namespace FMBExplorer.FormsElement
 
             set
             {
-                _visualAttributeName = value;
+                _visualAttributeName = CleanXMLString(value);
                 PropertyChanged(this, new PropertyChangedEventArgs("VisualAttributeName"));
             }
         }
