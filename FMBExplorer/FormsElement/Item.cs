@@ -11,6 +11,19 @@ namespace FMBExplorer.FormsElement
     {
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
 
+        public override string ToString()
+        {
+            return String.Format("{0} - Triggers: {1}", this.Name, this.Triggers.Count());
+        }
+
+        public string ToolTip
+        {
+            get
+            {
+                return ToString();
+            }
+        }
+
         public Item(string name, string maximumLength, string yPosition, string xPosition, string itemsDisplay,
             string distanceBetweenRecords, string width, string canvasName, string height, string required,
             string insertAllowed, string deleteAllowed, string updateAllowed, string itemType, string prompt,

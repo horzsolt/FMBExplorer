@@ -16,10 +16,18 @@ namespace FMBExplorer.FormsElement
             return String.Format("{0} - {1} - Triggers: {2} Items: {3}", this.Name, this.QueryDataSourceName, this.Triggers.Count(), this.Items.Count());
         }
 
-        public Block(string name, 
-            string insertAllowed, 
-            string deleteAllowed, 
-            string updateAllowed, 
+        public string ToolTip
+        {
+            get
+            {
+                return ToString();
+            }
+        }
+
+        public Block(string name,
+            string insertAllowed,
+            string deleteAllowed,
+            string updateAllowed,
             string queryDataSourceName,
             string recordDisplayCount,
             string scrollbarTabPageName,

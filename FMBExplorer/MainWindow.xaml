@@ -7,6 +7,27 @@
         mc:Ignorable="d"
         Title="FMB browser" Height="450" Width="935.989" WindowState="Maximized"
         >
+    <Window.Resources>
+        <DataTemplate x:Key="level3" DataType="{x:Type treeData:Item}">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/Images/item.png" Height="20" Width="20" Margin="0,0,5,0"/>
+                <TextBlock Text="{Binding Name}" ToolTip="{Binding ToolTip}"/>
+            </StackPanel>
+        </DataTemplate>
+        <HierarchicalDataTemplate x:Key="level2" DataType="{x:Type treeData:Trigger}" 
+                                              ItemsSource="{Binding Triggers}" ItemTemplate="{StaticResource level3}">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/Images/block.png" Height="20" Width="20"  Margin="0,0,5,0"/>
+                <TextBlock Text="{Binding Name}" ToolTip="{Binding ToolTip}"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+        <HierarchicalDataTemplate x:Key="level1" DataType="{x:Type treeData:Block}" ItemsSource="{Binding Items}">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/Images/block.png" Height="20" Width="20"  Margin="0,0,5,0"/>
+                <TextBlock Text="{Binding Name}" ToolTip="{Binding ToolTip}"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+    </Window.Resources>
     <Grid ShowGridLines="True">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -44,27 +65,8 @@
                 </ListBox.ItemTemplate>
             </ListBox>
             <TreeView x:Name="treeView" VerticalAlignment="Stretch" 
-              HorizontalAlignment="Stretch" Margin="10,0,10,10" >
-                <TreeView.Resources>
-                    <DataTemplate DataType="{x:Type treeData:Item}">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="/Images/item.png" Height="20" Width="20" Margin="0,0,5,0"/>
-                            <TextBlock Text="{Binding Name}"/>
-                        </StackPanel>
-                    </DataTemplate>                    
-                    <HierarchicalDataTemplate DataType="{x:Type treeData:Trigger}" ItemsSource="{Binding Triggers}">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="/Images/block.png" Height="20" Width="20"  Margin="0,0,5,0"/>
-                            <TextBlock Text="{Binding Name}"/>
-                        </StackPanel>
-                    </HierarchicalDataTemplate>
-                    <HierarchicalDataTemplate DataType="{x:Type treeData:Block}" ItemsSource="{Binding Items}">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="/Images/block.png" Height="20" Width="20"  Margin="0,0,5,0"/>
-                            <TextBlock Text="{Binding Name}"/>
-                        </StackPanel>
-                    </HierarchicalDataTemplate>
-                </TreeView.Resources>
+              HorizontalAlignment="Stretch" Margin="10,0,10,10"
+                      ItemTemplate="{StaticResource level1}">
             </TreeView>
         </StackPanel>
     </Grid>
