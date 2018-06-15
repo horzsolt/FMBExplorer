@@ -71,8 +71,6 @@
     <Compile Include="FormsElement\Trigger.cs" />
     <Compile Include="FormsParser\BlockParser.cs" />
     <Compile Include="FormsParser\ItemParser.cs" />
-    <Compile Include="FormsTree\TreeBuilder.cs" />
-    <Compile Include="FormsTree\TreeItem.cs" />
     <Compile Include="MainViewModel.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -105,9 +103,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\item.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resource\KOD_fmb.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\block.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

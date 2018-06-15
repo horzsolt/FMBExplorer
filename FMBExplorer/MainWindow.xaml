@@ -3,10 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:FMBExplorer"
+        xmlns:treeData="clr-namespace:FMBExplorer.FormsElement"
         mc:Ignorable="d"
         Title="FMB browser" Height="450" Width="935.989" WindowState="Maximized"
-
         >
     <Grid ShowGridLines="True">
         <Grid.ColumnDefinitions>
@@ -16,34 +15,57 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
-            <RowDefinition Height="30"/>            
+            <RowDefinition Height="30"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Name="StackPanel1" VerticalAlignment="Top">
             <Label Margin="10,0,10,10" Content="FMB directoy:"/>
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" Name="StackPanel2" VerticalAlignment="Top" Orientation="Vertical">
-            <Label Margin="10,0,10,10" Content="{Binding CurrentFolder}" x:Name="lblDirectory" />            
+            <Label Margin="10,0,10,10" Content="{Binding CurrentFolder}" x:Name="lblDirectory" />
         </StackPanel>
         <StackPanel Grid.Column="2" Grid.Row="0" HorizontalAlignment="Left" Name="StackPanel3" VerticalAlignment="Top" Orientation="Horizontal">
             <Button Margin="10,0,10,10" Content="Select folder" Width="110" Click="Button_Click"/>
             <Button Margin="10,0,10,10" Content="Scan" Width="110" Click="Button_Click_1"/>
         </StackPanel>
         <ProgressBar Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Name="ProgressBar1" HorizontalAlignment="Stretch" Margin="10,0,10,10"/>
-        <ListBox ItemsSource="{Binding FmxList}" Grid.Column="0" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10,0,10,10" SelectionChanged="ListBox_SelectionChanged">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition SharedSizeGroup="Key" />
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Margin="2" Text="{Binding Key}" Grid.Column="0"/>
-                    <!--    <TextBlock Margin="2" Text="{Binding Value.Name}" Grid.Column="1"/> -->
-                    </Grid>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-    <TreeView x:Name="treeView" ItemsSource="{Binding FormsTree}" Grid.Column="0" Grid.Row="3" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="10,0,10,10"/>
-
-  </Grid>
+        <StackPanel Grid.Column="0" Grid.Row="2">
+            <ListBox ItemsSource="{Binding FmxList}"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10,0,10,10" SelectionChanged="ListBox_SelectionChanged" SelectedItem="{Binding SelectedFormModule}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition SharedSizeGroup="Key" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Margin="2" Text="{Binding Key}" Grid.Column="0"/>
+                            <!--    <TextBlock Margin="2" Text="{Binding Value.Name}" Grid.Column="1"/> -->
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <TreeView x:Name="treeView" VerticalAlignment="Stretch" 
+              HorizontalAlignment="Stretch" Margin="10,0,10,10" >
+                <TreeView.Resources>
+                    <DataTemplate DataType="{x:Type treeData:Item}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Images/item.png" Height="20" Width="20" Margin="0,0,5,0"/>
+                            <TextBlock Text="{Binding Name}"/>
+                        </StackPanel>
+                    </DataTemplate>                    
+                    <HierarchicalDataTemplate DataType="{x:Type treeData:Trigger}" ItemsSource="{Binding Triggers}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Images/block.png" Height="20" Width="20"  Margin="0,0,5,0"/>
+                            <TextBlock Text="{Binding Name}"/>
+                        </StackPanel>
+                    </HierarchicalDataTemplate>
+                    <HierarchicalDataTemplate DataType="{x:Type treeData:Block}" ItemsSource="{Binding Items}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Images/block.png" Height="20" Width="20"  Margin="0,0,5,0"/>
+                            <TextBlock Text="{Binding Name}"/>
+                        </StackPanel>
+                    </HierarchicalDataTemplate>
+                </TreeView.Resources>
+            </TreeView>
+        </StackPanel>
+    </Grid>
 </Window>

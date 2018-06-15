@@ -36,10 +36,10 @@ namespace FMBExplorer.FormsElement
             this.ColumnName = columnName;
             this.VisualAttributeName = visualAttributeName;
 
-            triggers = new List<Trigger>();
+            Triggers = new List<Trigger>();
         }
 
-        public List<Trigger> triggers { get; set; }
+        public List<Trigger> Triggers { get; set; }
 
         private string _name;
         public string Name

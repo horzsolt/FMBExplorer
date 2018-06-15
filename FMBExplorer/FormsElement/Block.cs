@@ -13,7 +13,7 @@ namespace FMBExplorer.FormsElement
 
         public override string ToString()
         {
-            return String.Format("{0} - {1} - Triggers: {2} Items: {3}", this.Name, this.QueryDataSourceName, this.triggers.Count(), this.items.Count());
+            return String.Format("{0} - {1} - Triggers: {2} Items: {3}", this.Name, this.QueryDataSourceName, this.Triggers.Count(), this.Items.Count());
         }
 
         public Block(string name, 
@@ -46,13 +46,13 @@ namespace FMBExplorer.FormsElement
             this.PreviousNavigationBlockName = previousNavigationBlockName;
             this.LockMode = lockMode;
 
-            items = new List<Item>();
-            triggers = new List<Trigger>();
+            Items = new List<Item>();
+            Triggers = new List<Trigger>();
         }
 
-        public List<Trigger> triggers { get; set; }
+        public List<Trigger> Triggers { get; set; }
 
-        public List<Item> items { get; set; }
+        public List<Item> Items { get; set; }
 
         private string _name;
         public string Name

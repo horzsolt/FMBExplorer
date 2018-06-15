@@ -29,7 +29,7 @@ namespace FMBExplorer
                                   select el).First();
 
                 IEnumerable<Item> items = ItemParser.GetItems(ns, block);
-                blockItem.items.AddRange(items);
+                blockItem.Items.AddRange(items);
             });
 
             FormModule formModule = new FormModule("Name", "Title", "Max", "MenuModule", "Console", blocks);

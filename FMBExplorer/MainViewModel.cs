@@ -1,5 +1,4 @@
 ﻿using FMBExplorer.FormsElement;
-using FMBExplorer.FormsTree;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -45,8 +44,21 @@ namespace FMBExplorer
             }
         }
 
-        public TreeItem FormsTree { get; set; }
+        private FormModule _formModule;
+        public FormModule FormModule
+        {
+            get
+            {
+                return _formModule;
+            }
 
-        public KeyValuePair<string, FormModule> SelectedFormModule { get; set; };
+            set
+            {
+                _formModule = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("FormModule"));
+            }
+        }
+
+        public KeyValuePair<string, FormModule> SelectedFormModule { get; set; }
     }
 }

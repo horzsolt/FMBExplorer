@@ -55,7 +55,7 @@ namespace FMBExplorer.FormsParser
                         triggerText: el.Attribute(ns + "TriggerText")?.ToString()
                         );
 
-                item.triggers.AddRange(triggers);
+                item.Triggers.AddRange(triggers);
             }
 
             return items;
