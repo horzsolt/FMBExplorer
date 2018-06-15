@@ -1,5 +1,7 @@
-﻿using System;
+﻿using FMBExplorer.FormsTree;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -66,6 +68,11 @@ namespace FMBExplorer
 
         }
 
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
+            MessageBox.Show(vm.SelectedFormModule.ToString());
+            //vm.FormsTree = TreeBuilder.Build();
+        }
     }
 }

@@ -71,6 +71,8 @@
     <Compile Include="FormsElement\Trigger.cs" />
     <Compile Include="FormsParser\BlockParser.cs" />
     <Compile Include="FormsParser\ItemParser.cs" />
+    <Compile Include="FormsTree\TreeBuilder.cs" />
+    <Compile Include="FormsTree\TreeItem.cs" />
     <Compile Include="MainViewModel.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

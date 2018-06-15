@@ -1,4 +1,5 @@
 ﻿using FMBExplorer.FormsElement;
+using FMBExplorer.FormsTree;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -43,5 +44,9 @@ namespace FMBExplorer
                 PropertyChanged(this, new PropertyChangedEventArgs("FmxList"));
             }
         }
+
+        public TreeItem FormsTree { get; set; }
+
+        public KeyValuePair<string, FormModule> SelectedFormModule { get; set; };
     }
 }
