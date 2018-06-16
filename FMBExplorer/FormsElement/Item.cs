@@ -27,7 +27,8 @@ namespace FMBExplorer.FormsElement
         public Item(string name, string maximumLength, string yPosition, string xPosition, string itemsDisplay,
             string distanceBetweenRecords, string width, string canvasName, string height, string required,
             string insertAllowed, string deleteAllowed, string updateAllowed, string itemType, string prompt,
-            string tabPageName, string promptDisplayStyle, string columnName, string visualAttributeName)
+            string tabPageName, string promptDisplayStyle, string columnName, string visualAttributeName,
+            IEnumerable<Trigger> triggers)
         {
             this.Name = name;
             this.MaximumLength = maximumLength;
@@ -49,7 +50,7 @@ namespace FMBExplorer.FormsElement
             this.ColumnName = columnName;
             this.VisualAttributeName = visualAttributeName;
 
-            Triggers = new List<Trigger>();
+            Triggers = new List<Trigger>(triggers);
         }
 
         public List<Trigger> Triggers { get; set; }

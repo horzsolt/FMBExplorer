@@ -8,22 +8,22 @@
         Title="FMB browser" Height="450" Width="935.989" WindowState="Maximized"
         >
     <Window.Resources>
-        <DataTemplate x:Key="level3" DataType="{x:Type treeData:Item}">
+        <DataTemplate x:Key="triggers" DataType="{x:Type treeData:Item}">
             <StackPanel Orientation="Horizontal">
                 <Image Source="/Images/item.png" Height="20" Width="20" Margin="0,0,5,0"/>
                 <TextBlock Text="{Binding Name}" ToolTip="{Binding ToolTip}"/>
             </StackPanel>
         </DataTemplate>
-        <HierarchicalDataTemplate x:Key="level2" DataType="{x:Type treeData:Trigger}" 
-                                              ItemsSource="{Binding Triggers}" ItemTemplate="{StaticResource level3}">
+        <HierarchicalDataTemplate x:Key="items"  
+                                              ItemsSource="{Binding Triggers}" ItemTemplate="{StaticResource triggers}">
             <StackPanel Orientation="Horizontal">
                 <Image Source="/Images/block.png" Height="20" Width="20"  Margin="0,0,5,0"/>
                 <TextBlock Text="{Binding Name}" ToolTip="{Binding ToolTip}"/>
             </StackPanel>
         </HierarchicalDataTemplate>
-        <HierarchicalDataTemplate x:Key="level1" DataType="{x:Type treeData:Block}" ItemsSource="{Binding Items}">
+        <HierarchicalDataTemplate x:Key="blocks" ItemsSource="{Binding Items}" ItemTemplate="{StaticResource items}">
             <StackPanel Orientation="Horizontal">
-                <Image Source="/Images/block.png" Height="20" Width="20"  Margin="0,0,5,0"/>
+                <Image Source="/Images/books.svg" Height="20" Width="20"  Margin="0,0,5,0"/>
                 <TextBlock Text="{Binding Name}" ToolTip="{Binding ToolTip}"/>
             </StackPanel>
         </HierarchicalDataTemplate>
@@ -66,7 +66,7 @@
             </ListBox>
             <TreeView x:Name="treeView" VerticalAlignment="Stretch" 
               HorizontalAlignment="Stretch" Margin="10,0,10,10"
-                      ItemTemplate="{StaticResource level1}">
+                      ItemTemplate="{StaticResource blocks}">
             </TreeView>
         </StackPanel>
     </Grid>

@@ -34,31 +34,14 @@ namespace FMBExplorer.FormsParser
                     tabPageName: el.Attribute(ns + "TabPageName")?.Value.ToString(),
                     promptDisplayStyle: el.Attribute(ns + "PromptDisplayStyle")?.Value.ToString(),
                     columnName: el.Attribute(ns + "ColumnName")?.Value.ToString(),
-                    visualAttributeName: el.Attribute(ns + "VisualAttributeName")?.Value.ToString()
+                    visualAttributeName: el.Attribute(ns + "VisualAttributeName")?.Value.ToString(),
+                    triggers:
+                        from trg in el.Descendants(ns + "Trigger")
+                        select new Trigger(
+                            name: trg.Attribute(ns + "Name")?.ToString(),
+                            triggerText: trg.Attribute(ns + "TriggerText")?.ToString()
+                            )
                     );
-
-            IEnumerable<Trigger> triggersOfTheBlock = from el in block.Descendants(ns + "Trigger")
-                                                      select new Trigger(
-                    name: el.Attribute(ns + "Name")?.ToString(),
-                    triggerText: el.Attribute(ns + "TriggerText")?.ToString()
-                    );
-
-            foreach (Item item in items)
-            {
-                XElement givenItem = (from el in block.Descendants(ns + "Item")
-                                      where item.Name == el.Attribute("Name").Value
-                                      select el).First();
-
-                IEnumerable<Trigger> triggers =
-                    from el in givenItem.Descendants(ns + "Trigger")
-                    select new Trigger(
-                        name: el.Attribute(ns + "Name")?.ToString(),
-                        triggerText: el.Attribute(ns + "TriggerText")?.ToString()
-                        );
-
-                item.Triggers.AddRange(triggers);
-            }
-
             return items;
         }
     }

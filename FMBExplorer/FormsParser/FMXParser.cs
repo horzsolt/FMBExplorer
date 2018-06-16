@@ -28,8 +28,7 @@ namespace FMBExplorer
                                   where el.Attribute("Name").Value == blockItem.Name
                                   select el).First();
 
-                IEnumerable<Item> items = ItemParser.GetItems(ns, block);
-                blockItem.Items.AddRange(items);
+                blockItem.Items.AddRange(ItemParser.GetItems(ns, block));
             });
 
             FormModule formModule = new FormModule("Name", "Title", "Max", "MenuModule", "Console", blocks);
