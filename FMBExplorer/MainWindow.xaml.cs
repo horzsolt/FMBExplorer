@@ -1,20 +1,11 @@
-﻿using System;
+﻿using FMBExplorer.CodeGen;
+using FMBExplorer.FormsElement;
 using System.Collections.Generic;
-using System.Data;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Xml.Linq;
 
 namespace FMBExplorer
 {
@@ -64,13 +55,24 @@ namespace FMBExplorer
             {
                 ProgressBar1.Value = 0;
             }
-
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             vm.FormModule = vm.SelectedFormModule.Value;
             treeView.ItemsSource = vm.FormModule.Blocks;            
+        }
+
+        private void treeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            if (e.NewValue is Block)
+            {
+                Block block = e.NewValue as Block;
+                vm.GeneratedCode = GenerateDataGrid.Generate(block);
+            } else
+            {
+                vm.GeneratedCode = "";
+            }
         }
     }
 }

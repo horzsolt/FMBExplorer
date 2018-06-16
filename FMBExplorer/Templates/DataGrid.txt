@@ -1,0 +1,9 @@
+﻿<DataGrid x:Name="@Model.Name" 
+	SelectionUnit="Cell" SelectionMode="Single" AutoGenerateColumns="False" CanUserAddRows="false" IsEnabled="True" 
+	EnableRowVirtualization="True" Width="auto" 
+	ItemsSource="{Binding Source={StaticResource customersOrdersViewSource}}" 
+	Margin="10,10,10,10" RowDetailsVisibilityMode="VisibleWhenSelected">
+	<DataGrid.Columns>
+		@Model.Columns
+    </DataGrid.Columns>
+</DataGrid>

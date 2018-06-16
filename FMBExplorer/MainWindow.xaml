@@ -23,7 +23,7 @@
         </HierarchicalDataTemplate>
         <HierarchicalDataTemplate x:Key="blocks" ItemsSource="{Binding Items}" ItemTemplate="{StaticResource items}">
             <StackPanel Orientation="Horizontal">
-                <Image Source="/Images/books.svg" Height="20" Width="20"  Margin="0,0,5,0"/>
+                <Image Source="/Images/block.png" Height="20" Width="20"  Margin="0,0,5,0"/>
                 <TextBlock Text="{Binding Name}" ToolTip="{Binding ToolTip}"/>
             </StackPanel>
         </HierarchicalDataTemplate>
@@ -66,8 +66,10 @@
             </ListBox>
             <TreeView x:Name="treeView" VerticalAlignment="Stretch" 
               HorizontalAlignment="Stretch" Margin="10,0,10,10"
+                      SelectedItemChanged="treeView_SelectedItemChanged"
                       ItemTemplate="{StaticResource blocks}">
             </TreeView>
         </StackPanel>
+        <TextBlock Text ="{Binding GeneratedCode}" x:Name="documentViewer" Grid.Column="1" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
     </Grid>
 </Window>

@@ -12,6 +12,22 @@ namespace FMBExplorer
     {
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
 
+        private string _generatedCode;
+        public string GeneratedCode
+        {
+
+            get
+            {
+                return _generatedCode;
+            }
+
+            set
+            {
+                _generatedCode = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("GeneratedCode"));
+            }
+        }
+
         private string _currentFolder;
         public string CurrentFolder
         {
