@@ -13,18 +13,21 @@ namespace FMBExplorer.CodeGen
 {
     public static class GenerateDataGrid
     {
+        static Assembly assembly = Assembly.GetExecutingAssembly();
+
         public static string Generate(Block block)
         {
+
+            var columns = GenerateDataGridColumns.Generate(block);
             string result = "";
-            var assembly = Assembly.GetExecutingAssembly();
+            
             var resourceName = "FMBExplorer.Templates.DataGrid.txt";
 
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             using (StreamReader reader = new StreamReader(stream))
             {
                 string template = reader.ReadToEnd();
-                var templateService = new TemplateService();
-                result = templateService.Parse(template, new { Name = block.Name, Columns = "" }, null, null);
+                result = Engine.Razor.RunCompile(template, "templateKey", null, new { Name = block.Name, Columns = columns });
             }
 
             return result;

@@ -1,9 +1,18 @@
-﻿<DataGrid x:Name="@Model.Name" 
-	SelectionUnit="Cell" SelectionMode="Single" AutoGenerateColumns="False" CanUserAddRows="false" IsEnabled="True" 
-	EnableRowVirtualization="True" Width="auto" 
-	ItemsSource="{Binding Source={StaticResource customersOrdersViewSource}}" 
-	Margin="10,10,10,10" RowDetailsVisibilityMode="VisibleWhenSelected">
-	<DataGrid.Columns>
-		@Model.Columns
-    </DataGrid.Columns>
-</DataGrid>
+﻿<Window x:Class="OracleForms.Example"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GridExample"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="800">
+	<DataGrid x:Name="@Model.Name" 
+		SelectionUnit="Cell" SelectionMode="Single" AutoGenerateColumns="False" CanUserAddRows="false" IsEnabled="True" 
+		EnableRowVirtualization="True" Width="auto" 
+		ItemsSource="{Binding Source={StaticResource customersOrdersViewSource}}" 
+		Margin="10,10,10,10" RowDetailsVisibilityMode="VisibleWhenSelected">
+		<DataGrid.Columns>
+			@Model.Columns
+		</DataGrid.Columns>
+	</DataGrid>
+</Window>

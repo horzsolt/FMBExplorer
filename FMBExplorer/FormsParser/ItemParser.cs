@@ -35,6 +35,7 @@ namespace FMBExplorer.FormsParser
                     promptDisplayStyle: el.Attribute(ns + "PromptDisplayStyle")?.Value.ToString(),
                     columnName: el.Attribute(ns + "ColumnName")?.Value.ToString(),
                     visualAttributeName: el.Attribute(ns + "VisualAttributeName")?.Value.ToString(),
+                    dataType: el.Attribute(ns + "DataType")?.Value.ToString(),
                     triggers:
                         from trg in el.Descendants(ns + "Trigger")
                         select new Trigger(

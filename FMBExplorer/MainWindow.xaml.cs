@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
+using System.Xml;
 
 namespace FMBExplorer
 {
@@ -69,6 +70,12 @@ namespace FMBExplorer
             {
                 Block block = e.NewValue as Block;
                 vm.GeneratedCode = GenerateDataGrid.Generate(block);
+
+                XmlDocument doc = new XmlDocument();
+                doc.LoadXml(vm.GeneratedCode);
+                doc.Normalize();
+
+                documentViewer.XmlDocument = doc;
             } else
             {
                 vm.GeneratedCode = "";

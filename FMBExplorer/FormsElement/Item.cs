@@ -28,7 +28,7 @@ namespace FMBExplorer.FormsElement
             string distanceBetweenRecords, string width, string canvasName, string height, string required,
             string insertAllowed, string deleteAllowed, string updateAllowed, string itemType, string prompt,
             string tabPageName, string promptDisplayStyle, string columnName, string visualAttributeName,
-            IEnumerable<Trigger> triggers)
+            string dataType, IEnumerable<Trigger> triggers)
         {
             this.Name = name;
             this.MaximumLength = maximumLength;
@@ -49,6 +49,8 @@ namespace FMBExplorer.FormsElement
             this.PromptDisplayStyle = promptDisplayStyle;
             this.ColumnName = columnName;
             this.VisualAttributeName = visualAttributeName;
+            this.DataType = dataType;
+            
 
             Triggers = new List<Trigger>(triggers);
         }
@@ -291,6 +293,22 @@ namespace FMBExplorer.FormsElement
             {
                 _itemType = CleanXMLString(value);
                 PropertyChanged(this, new PropertyChangedEventArgs("ItemType"));
+            }
+        }
+
+        private string _dataType;
+        public string DataType
+        {
+
+            get
+            {
+                return _dataType;
+            }
+
+            set
+            {
+                _dataType = CleanXMLString(value);
+                PropertyChanged(this, new PropertyChangedEventArgs("DataType"));
             }
         }
 

@@ -1,0 +1,7 @@
+﻿<DataGridTemplateColumn x:Name="@Model.Name" Header="@Model.Prompt" Width="SizeToHeader">
+	<DataGridTemplateColumn.CellTemplate>
+		<DataTemplate>
+			<DatePicker SelectedDate="{Binding @Model.FieldName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, UpdateSourceTrigger=PropertyChanged}"/>
+        </DataTemplate>
+    </DataGridTemplateColumn.CellTemplate>
+</DataGridTemplateColumn>

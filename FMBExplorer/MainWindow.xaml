@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:treeData="clr-namespace:FMBExplorer.FormsElement"
+        xmlns:XMLViewer="clr-namespace:FMBExplorer.XMLViewer"
         mc:Ignorable="d"
         Title="FMB browser" Height="450" Width="935.989" WindowState="Maximized"
         >
@@ -70,6 +71,6 @@
                       ItemTemplate="{StaticResource blocks}">
             </TreeView>
         </StackPanel>
-        <TextBlock Text ="{Binding GeneratedCode}" x:Name="documentViewer" Grid.Column="1" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+        <XMLViewer:Viewer x:Name="documentViewer" Grid.Column="1" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
     </Grid>
 </Window>
