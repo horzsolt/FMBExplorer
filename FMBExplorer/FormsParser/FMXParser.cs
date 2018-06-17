@@ -3,6 +3,7 @@ using FMBExplorer.FormsParser;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,11 +16,11 @@ namespace FMBExplorer
         public static FormModule ProcessFormsXML(string fileName)
         {
 
-            //XNamespace ns = "http://xmlns.oracle.com/Forms";
+            //XNamespace ns = "http://xmlns.oracle.com/Forms/";
             XNamespace ns = String.Empty;
-            Debug.WriteLine("Debug Debug WOrld");
 
-            XElement fmx = XElement.Load(fileName);
+            string text = File.ReadAllText(fileName, Encoding.GetEncoding("UTF-8"));
+            XElement fmx = XElement.Parse(text);
 
             List<Block> blocks = BlockParser.GetBlocks(ns, fmx).ToList<Block>();
 

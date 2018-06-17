@@ -1,9 +1,11 @@
 ﻿using FMBExplorer.CodeGen;
+using FMBExplorer.Common;
 using FMBExplorer.FormsElement;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Xml;
@@ -44,7 +46,7 @@ namespace FMBExplorer
 
             try
             {
-                vm.FmxList = new Dictionary<string, FormsElement.FormModule>();
+                vm.FmxList = new ObservableDictionary<string, FormsElement.FormModule>();
 
                 filePaths.ToList<string>().ForEach(xmlFile =>
                 {
@@ -69,17 +71,40 @@ namespace FMBExplorer
             if (e.NewValue is Block)
             {
                 Block block = e.NewValue as Block;
-                vm.GeneratedCode = GenerateDataGrid.Generate(block);
 
                 XmlDocument doc = new XmlDocument();
-                doc.LoadXml(vm.GeneratedCode);
-                doc.Normalize();
+                XmlDeclaration xmldecl = doc.CreateXmlDeclaration("1.0", "UTF-8", "yes");
+
+                doc.LoadXml(GenerateDataGrid.Generate(block));
+
+                XmlElement root = doc.DocumentElement;
+                doc.InsertBefore(xmldecl, root);
+
+                StringBuilder sb = new StringBuilder();
+                System.IO.TextWriter tr = new System.IO.StringWriter(sb);
+                XmlTextWriter wr = new XmlTextWriter(tr);
+                wr.Formatting = Formatting.Indented;
+                doc.Save(wr);
+                wr.Close();
 
                 documentViewer.XmlDocument = doc;
+
+                vm.GeneratedCode = sb.ToString();
+
             } else
             {
                 vm.GeneratedCode = "";
             }
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Clipboard.SetText(vm.GeneratedCode);
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

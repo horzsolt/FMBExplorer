@@ -61,6 +61,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Common\ObservableDictionary.cs" />
     <Compile Include="XMLViewer\Viewer.xaml.cs">
       <DependentUpon>Viewer.xaml</DependentUpon>
     </Compile>
@@ -142,6 +143,14 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Templates\DateColumn.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\KK2_216_fmb.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Templates\TextColumn.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

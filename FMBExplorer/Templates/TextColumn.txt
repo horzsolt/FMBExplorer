@@ -1,0 +1,1 @@
+﻿@Raw("<DataGridTextColumn x:Name=") "@Model.Name" Binding = "{Binding @Model.FieldName}" Header = "@Raw(@Model.Prompt)" Width = "SizeToHeader" @Raw("/>")

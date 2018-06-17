@@ -13,7 +13,7 @@ namespace FMBExplorer.FormsElement
 
         public override string ToString()
         {
-            return String.Format("{0} - Triggers: {1}", this.Name, this.Triggers.Count());
+            return String.Format("{0} - Triggers: {1}", this.Prompt, this.Triggers.Count());
         }
 
         public string ToolTip

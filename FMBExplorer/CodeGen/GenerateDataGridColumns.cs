@@ -63,10 +63,18 @@ namespace FMBExplorer.CodeGen
             return result.ToString();
         }
 
-        private static string GenTextColumn(Item item)
+            private static string GenTextColumn(Item item)
         {
-            string template = "<DataGridTextColumn x: Name = \"@Model.Name\" Binding = \"{Binding @Model.FieldName}\" Header = \"@Model.Prompt\" Width = \"SizeToHeader\" />";
-            string result = Engine.Razor.RunCompile(template, "columnTemplate", null, new { Name = item.Name, FieldName = item.ColumnName, Prompt = item.Prompt });
+            string result = "";
+
+            var resourceName = "FMBExplorer.Templates.TextColumn.txt";
+
+            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            using (StreamReader reader = new StreamReader(stream, System.Text.Encoding.GetEncoding("UTF-8")))
+            {
+                string template = reader.ReadToEnd();
+                result = Engine.Razor.RunCompile(template, "columnTemplate", null, new { Name = item.Name, FieldName = item.ColumnName, Prompt = item.Prompt });
+            }
 
             return result;
         }
@@ -78,7 +86,7 @@ namespace FMBExplorer.CodeGen
             var resourceName = "FMBExplorer.Templates.DateColumn.txt";
 
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
-            using (StreamReader reader = new StreamReader(stream))
+            using (StreamReader reader = new StreamReader(stream, System.Text.Encoding.GetEncoding("UTF-8")))
             {
                 string template = reader.ReadToEnd();
                 result = Engine.Razor.RunCompile(template, "dateColumnKey", null, new { Name = item.Name, Prompt = item.Prompt, FieldName = item.ColumnName });

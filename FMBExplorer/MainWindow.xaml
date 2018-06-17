@@ -46,9 +46,11 @@
         <StackPanel Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" Name="StackPanel2" VerticalAlignment="Top" Orientation="Vertical">
             <Label Margin="10,0,10,10" Content="{Binding CurrentFolder}" x:Name="lblDirectory" />
         </StackPanel>
-        <StackPanel Grid.Column="2" Grid.Row="0" HorizontalAlignment="Left" Name="StackPanel3" VerticalAlignment="Top" Orientation="Horizontal">
-            <Button Margin="10,0,10,10" Content="Select folder" Width="110" Click="Button_Click"/>
-            <Button Margin="10,0,10,10" Content="Scan" Width="110" Click="Button_Click_1"/>
+        <StackPanel Grid.Column="2" Grid.Row="0" HorizontalAlignment="Left" Name="StackPanel3" VerticalAlignment="Stretch" Orientation="Horizontal">
+            <Button Margin="10,0,10,5" Content="Copy to clipboard" Width="110" Click="Button_Click_2"/>            
+            <Button Margin="10,0,10,5" Content="Select folder" Width="110" Click="Button_Click"/>
+            <Button Margin="10,0,10,5" Content="Scan" Width="110" Click="Button_Click_1"/>
+            <Button Margin="10,0,10,5" Content="Exit" Width="110" Click="Button_Click_3"/>            
         </StackPanel>
         <ProgressBar Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Name="ProgressBar1" HorizontalAlignment="Stretch" Margin="10,0,10,10"/>
         <StackPanel Grid.Column="0" Grid.Row="2">
@@ -71,6 +73,10 @@
                       ItemTemplate="{StaticResource blocks}">
             </TreeView>
         </StackPanel>
-        <XMLViewer:Viewer x:Name="documentViewer" Grid.Column="1" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+        <StackPanel Grid.Column="1" Grid.Row="2">
+            <XMLViewer:Viewer x:Name="documentViewer" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+            <TextBox Text="{Binding GeneratedCode}" x:Name="xamlBlock" HorizontalScrollBarVisibility="Auto" 
+                     VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" AcceptsReturn="True"/>
+        </StackPanel>
     </Grid>
 </Window>
