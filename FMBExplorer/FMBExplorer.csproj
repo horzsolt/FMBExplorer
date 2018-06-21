@@ -152,5 +152,8 @@
   <ItemGroup>
     <EmbeddedResource Include="Templates\TextColumn.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Templates\DataForm.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
