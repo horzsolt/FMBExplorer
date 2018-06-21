@@ -32,8 +32,8 @@
     <Grid ShowGridLines="True">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -74,9 +74,9 @@
             </TreeView>
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.Row="2">
-            <XMLViewer:Viewer x:Name="documentViewer" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+            <XMLViewer:Viewer x:Name="documentViewer" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MaxHeight="500" MinWidth="800" MaxWidth="900"/>
             <TextBox Text="{Binding GeneratedCode}" x:Name="xamlBlock" HorizontalScrollBarVisibility="Auto" 
-                     VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" AcceptsReturn="True"/>
+                     VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" AcceptsReturn="True" MaxHeight="500" MinWidth="800" MaxWidth="900"/>
         </StackPanel>
     </Grid>
 </Window>
