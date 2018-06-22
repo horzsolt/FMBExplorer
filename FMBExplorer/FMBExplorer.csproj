@@ -156,10 +156,13 @@
     <EmbeddedResource Include="Templates\TextColumn.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Templates\DataForm.txt" />
+    <EmbeddedResource Include="Templates\DataForm.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Templates\DataFormField.txt" />
+    <EmbeddedResource Include="Templates\TextFormField.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Templates\DateFormField.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

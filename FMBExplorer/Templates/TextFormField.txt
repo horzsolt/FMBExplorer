@@ -1,0 +1,2 @@
+﻿            <Label Content="@Model.Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="@Model.Row" VerticalAlignment="Center"/>
+            <TextBox x:Name="@Model.TextBox_Name" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="@Model.Row" Text="{Binding @Model.FieldName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="@Model.Width"/>

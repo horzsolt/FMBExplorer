@@ -14,13 +14,13 @@ namespace FMBExplorer.CodeGen
         {
             string result = "";
 
-            var resourceName = "FMBExplorer.Templates.DataFormField.txt";
+            var resourceName = "FMBExplorer.Templates.TextFormField.txt";
 
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             using (StreamReader reader = new StreamReader(stream, System.Text.Encoding.GetEncoding("UTF-8")))
             {
                 string template = reader.ReadToEnd();
-                result = Engine.Razor.RunCompile(template, "columnTemplate", null, new { Name = item.Name, FieldName = item.ColumnName, Prompt = item.Prompt });
+                result = Engine.Razor.RunCompile(template, "columnTemplate", null, new { Name = item.Name, Row = counter, TextBox_Name = "txb_" + item.ColumnName, FieldName = item.ColumnName, Width = item.Width });
             }
 
             return result;
@@ -30,13 +30,13 @@ namespace FMBExplorer.CodeGen
         {
             string result = "";
 
-            var resourceName = "FMBExplorer.Templates.DateColumn.txt";
+            var resourceName = "FMBExplorer.Templates.DateFormField.txt";
 
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             using (StreamReader reader = new StreamReader(stream, System.Text.Encoding.GetEncoding("UTF-8")))
             {
                 string template = reader.ReadToEnd();
-                result = Engine.Razor.RunCompile(template, "dateColumnKey", null, new { Name = item.Name, Prompt = item.Prompt, FieldName = item.ColumnName });
+                result = Engine.Razor.RunCompile(template, "dateColumnKey", null, new { Name = item.Name, Row = counter, TextBox_Name = "txb_" + item.ColumnName, FieldName = item.ColumnName, Width = item.Width });
             }
 
             return result;

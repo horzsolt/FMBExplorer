@@ -13,6 +13,21 @@ namespace FMBExplorer
     {
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
 
+        private bool? _isFormsCodeGen;
+        public bool? IsFormsCodeGen
+        {
+            get
+            {
+                return _isFormsCodeGen;
+            }
+
+            set
+            {
+                _isFormsCodeGen = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("IsFormsCodeGen"));
+            }
+        }
+
         private string _generatedCode;
         public string GeneratedCode
         {

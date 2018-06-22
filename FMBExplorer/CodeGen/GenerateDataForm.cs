@@ -31,7 +31,7 @@ namespace FMBExplorer.CodeGen
             using (StreamReader reader = new StreamReader(stream))
             {
                 string template = reader.ReadToEnd();
-                result = Engine.Razor.RunCompile(template, "dataFormTemplateKey", null, new { RowDefs = rowDefs, Columns = columns });
+                result = Engine.Razor.RunCompile(template, "dataFormTemplateKey", null, new { RowDefs = rowDefs, DataFormFields = columns });
             }
 
             return result;

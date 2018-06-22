@@ -75,7 +75,14 @@ namespace FMBExplorer
                 XmlDocument doc = new XmlDocument();
                 XmlDeclaration xmldecl = doc.CreateXmlDeclaration("1.0", "UTF-8", "yes");
 
-                doc.LoadXml(GenerateDataGrid.Generate(block));
+                if (chkCodeGen.IsChecked == true)
+                {
+                    doc.LoadXml(GenerateDataForm.Generate(block));
+                }
+                else
+                {
+                    doc.LoadXml(GenerateDataGrid.Generate(block));
+                }
 
                 XmlElement root = doc.DocumentElement;
                 doc.InsertBefore(xmldecl, root);
