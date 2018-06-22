@@ -10,139 +10,15 @@
         <CollectionViewSource x:Key="kKPARTNER_CORE_VViewSource" d:DesignSource="{d:DesignInstance {x:Type local:KKPARTNER_CORE_V}, CreateList=True}"/>
     </Window.Resources>
     <Grid>
-        <Grid x:Name="grid1" DataContext="{StaticResource kKPARTNER_CORE_VViewSource}" HorizontalAlignment="Left" Margin="141,93,0,0" VerticalAlignment="Top">
+        <Grid x:Name="grid1" DataContext="{StaticResource kKPARTNER_CORE_VViewSource}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
+				@Model.RowDefs
             </Grid.RowDefinitions>
-            <Label Content="CREATED BY:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
-            <TextBox x:Name="cREATED_BYTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding CREATED_BY, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="DATE CREATED:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
-            <DatePicker x:Name="dATE_CREATEDDatePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="1" SelectedDate="{Binding DATE_CREATED, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center"/>
-            <Label Content="DATE MODIFIED:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
-            <DatePicker x:Name="dATE_MODIFIEDDatePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="2" SelectedDate="{Binding DATE_MODIFIED, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center"/>
-            <Label Content="F KEPVDAT:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
-            <DatePicker x:Name="f_KEPVDATDatePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="3" SelectedDate="{Binding F_KEPVDAT, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center"/>
-            <Label Content="F LEANYNEV:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
-            <TextBox x:Name="f_LEANYNEVTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding F_LEANYNEV, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="L AIASZ:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center"/>
-            <TextBox x:Name="l_AIASZTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" Text="{Binding L_AIASZ, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="L ANYJA:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center"/>
-            <TextBox x:Name="l_ANYJATextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="6" Text="{Binding L_ANYJA, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="L CEGJ:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="7" VerticalAlignment="Center"/>
-            <TextBox x:Name="l_CEGJTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="7" Text="{Binding L_CEGJ, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="L CIM:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="8" VerticalAlignment="Center"/>
-            <TextBox x:Name="l_CIMTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="8" Text="{Binding L_CIM, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="L EMAIL:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="9" VerticalAlignment="Center"/>
-            <TextBox x:Name="l_EMAILTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="9" Text="{Binding L_EMAIL, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="L FAXK:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="10" VerticalAlignment="Center"/>
-            <TextBox x:Name="l_FAXKTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="10" Text="{Binding L_FAXK, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="L FAXSZ:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="11" VerticalAlignment="Center"/>
-            <TextBox x:Name="l_FAXSZTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="11" Text="{Binding L_FAXSZ, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="L HELYSEG:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="12" VerticalAlignment="Center"/>
-            <TextBox x:Name="l_HELYSEGTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="12" Text="{Binding L_HELYSEG, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="L IRSZ:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="13" VerticalAlignment="Center"/>
-            <TextBox x:Name="l_IRSZTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="13" Text="{Binding L_IRSZ, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="L JOGALL:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="14" VerticalAlignment="Center"/>
-            <TextBox x:Name="l_JOGALLTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="14" Text="{Binding L_JOGALL, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="L JOGALLN:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="15" VerticalAlignment="Center"/>
-            <TextBox x:Name="l_JOGALLNTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="15" Text="{Binding L_JOGALLN, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="L KINTCSAT:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="16" VerticalAlignment="Center"/>
-            <TextBox x:Name="l_KINTCSATTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="16" Text="{Binding L_KINTCSAT, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="L KRIT 1:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="17" VerticalAlignment="Center"/>
-            <TextBox x:Name="l_KRIT1TextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="17" Text="{Binding L_KRIT1, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="L KRIT 2:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="18" VerticalAlignment="Center"/>
-            <TextBox x:Name="l_KRIT2TextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="18" Text="{Binding L_KRIT2, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="L KRIT 3:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="19" VerticalAlignment="Center"/>
-            <TextBox x:Name="l_KRIT3TextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="19" Text="{Binding L_KRIT3, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="L KRIT 4:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="20" VerticalAlignment="Center"/>
-            <TextBox x:Name="l_KRIT4TextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="20" Text="{Binding L_KRIT4, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="L LEVCIM:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="21" VerticalAlignment="Center"/>
-            <TextBox x:Name="l_LEVCIMTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="21" Text="{Binding L_LEVCIM, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="L LEVHELYSEG:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="22" VerticalAlignment="Center"/>
-            <TextBox x:Name="l_LEVHELYSEGTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="22" Text="{Binding L_LEVHELYSEG, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="L LEVIRSZ:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="23" VerticalAlignment="Center"/>
-            <TextBox x:Name="l_LEVIRSZTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="23" Text="{Binding L_LEVIRSZ, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="L LEVNEV:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="24" VerticalAlignment="Center"/>
-            <TextBox x:Name="l_LEVNEVTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="24" Text="{Binding L_LEVNEV, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="L MEGYE:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="25" VerticalAlignment="Center"/>
-            <TextBox x:Name="l_MEGYETextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="25" Text="{Binding L_MEGYE, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="L NEV:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="26" VerticalAlignment="Center"/>
-            <TextBox x:Name="l_NEVTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="26" Text="{Binding L_NEV, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="L NEV UPPER:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="27" VerticalAlignment="Center"/>
-            <TextBox x:Name="l_NEV_UPPERTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="27" Text="{Binding L_NEV_UPPER, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="L REGIO:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="28" VerticalAlignment="Center"/>
-            <TextBox x:Name="l_REGIOTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="28" Text="{Binding L_REGIO, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="L SZIGSZAM:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="29" VerticalAlignment="Center"/>
-            <TextBox x:Name="l_SZIGSZAMTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="29" Text="{Binding L_SZIGSZAM, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="L SZULDAT:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="30" VerticalAlignment="Center"/>
-            <DatePicker x:Name="l_SZULDATDatePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="30" SelectedDate="{Binding L_SZULDAT, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center"/>
-            <Label Content="L SZULHELY:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="31" VerticalAlignment="Center"/>
-            <TextBox x:Name="l_SZULHELYTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="31" Text="{Binding L_SZULHELY, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="L TEL 1 K:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="32" VerticalAlignment="Center"/>
-            <TextBox x:Name="l_TEL1KTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="32" Text="{Binding L_TEL1K, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="L TEL 1 SZ:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="33" VerticalAlignment="Center"/>
-            <TextBox x:Name="l_TEL1SZTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="33" Text="{Binding L_TEL1SZ, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="L TEL 2 K:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="34" VerticalAlignment="Center"/>
-            <TextBox x:Name="l_TEL2KTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="34" Text="{Binding L_TEL2K, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="L TEL 2 SZ:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="35" VerticalAlignment="Center"/>
-            <TextBox x:Name="l_TEL2SZTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="35" Text="{Binding L_TEL2SZ, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="L UGYFCSOP:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="36" VerticalAlignment="Center"/>
-            <TextBox x:Name="l_UGYFCSOPTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="36" Text="{Binding L_UGYFCSOP, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="L UGYFCSOPN:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="37" VerticalAlignment="Center"/>
-            <TextBox x:Name="l_UGYFCSOPNTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="37" Text="{Binding L_UGYFCSOPN, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="L VESZELY:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="38" VerticalAlignment="Center"/>
-            <TextBox x:Name="l_VESZELYTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="38" Text="{Binding L_VESZELY, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="MODIFIED BY:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="39" VerticalAlignment="Center"/>
-            <TextBox x:Name="mODIFIED_BYTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="39" Text="{Binding MODIFIED_BY, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="U CHECKSUM:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="40" VerticalAlignment="Center"/>
-            <TextBox x:Name="u_CHECKSUMTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="40" Text="{Binding U_CHECKSUM, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="U PARTNER:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="41" VerticalAlignment="Center"/>
-            <TextBox x:Name="u_PARTNERTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="41" Text="{Binding U_PARTNER, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+			@Model.DataFormFields
         </Grid>
 
     </Grid>

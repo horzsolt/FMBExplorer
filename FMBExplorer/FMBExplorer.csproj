@@ -61,6 +61,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CodeGen\AbstractFieldGenerator.cs" />
+    <Compile Include="CodeGen\GenerateDataForm.cs" />
+    <Compile Include="CodeGen\GenerateDataFormFields.cs" />
     <Compile Include="Common\ObservableDictionary.cs" />
     <Compile Include="XMLViewer\Viewer.xaml.cs">
       <DependentUpon>Viewer.xaml</DependentUpon>
@@ -154,6 +157,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Templates\DataForm.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Templates\DataFormField.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

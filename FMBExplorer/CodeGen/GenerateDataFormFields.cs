@@ -1,19 +1,20 @@
-﻿using System.IO;
-using System.Reflection;
-using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using FMBExplorer.FormsElement;
+
 using RazorEngine;
 using RazorEngine.Templating;
 
 namespace FMBExplorer.CodeGen
 {
-    public class GenerateDataGridColumns : AbstractFieldGenerator
+    public class GenerateDataFormFields : AbstractFieldGenerator
     {
         protected override string GenTextColumn(Item item, int counter)
         {
             string result = "";
 
-            var resourceName = "FMBExplorer.Templates.TextColumn.txt";
+            var resourceName = "FMBExplorer.Templates.DataFormField.txt";
 
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             using (StreamReader reader = new StreamReader(stream, System.Text.Encoding.GetEncoding("UTF-8")))
@@ -40,6 +41,5 @@ namespace FMBExplorer.CodeGen
 
             return result;
         }
-
     }
 }
