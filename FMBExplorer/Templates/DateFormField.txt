@@ -1,3 +1,3 @@
-﻿            <Label Content="@Model.Name:" Grid.Row="@Model.Row" Style="{StaticResource Label}"/>
-            <DatePicker x:Name="@Model.TextBox_Name" Grid.Row="@Model.Row" HorizontalAlignment="Right" Width="@Model.Width"
+﻿            <Label Content="@Model.Prompt:" Grid.Row="@Model.Row" Style="{StaticResource Label}"/>
+            <DatePicker x:Name="@Model.TextBox_Name" Grid.Row="@Model.Row" HorizontalAlignment="Right" Width="@Model.Width" Height="@Model.Height"
                   SelectedDate="{Binding @Model.FieldName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, UpdateSourceTrigger=PropertyChanged}"/>

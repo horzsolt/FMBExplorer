@@ -12,7 +12,7 @@
 		ItemsSource="{Binding Source={StaticResource customersOrdersViewSource}}" 
 		Margin="10,10,10,10" RowDetailsVisibilityMode="VisibleWhenSelected">
 		<DataGrid.Columns>
-			@Model.Columns
+			@Raw(@Model.Columns)
 		</DataGrid.Columns>
 	</DataGrid>
 </Window>

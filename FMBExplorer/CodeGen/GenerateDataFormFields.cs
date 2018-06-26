@@ -17,10 +17,10 @@ namespace FMBExplorer.CodeGen
             var resourceName = "FMBExplorer.Templates.TextFormField.txt";
 
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
-            using (StreamReader reader = new StreamReader(stream, System.Text.Encoding.GetEncoding("UTF-8")))
+            using (StreamReader reader = new StreamReader(stream))
             {
                 string template = reader.ReadToEnd();
-                result = Engine.Razor.RunCompile(template, "columnTemplate", null, new { Name = item.Name, Row = counter, TextBox_Name = "txb_" + item.ColumnName, FieldName = item.ColumnName, Width = item.Width });
+                result = Engine.Razor.RunCompile(template, "textFieldTemplateKey", null, new { Name = item.Name, Row = counter, TextBox_Name = "txb_" + item.ColumnName, FieldName = item.ColumnName, Width = item.WpfWidth, Height = item.WpfHeight, Prompt = item.Prompt, Left = item.WpfXPosition, Bottom = item.WpfYPosition });
             }
 
             return result;
@@ -33,10 +33,10 @@ namespace FMBExplorer.CodeGen
             var resourceName = "FMBExplorer.Templates.DateFormField.txt";
 
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
-            using (StreamReader reader = new StreamReader(stream, System.Text.Encoding.GetEncoding("UTF-8")))
+            using (StreamReader reader = new StreamReader(stream))
             {
                 string template = reader.ReadToEnd();
-                result = Engine.Razor.RunCompile(template, "dateColumnKey", null, new { Name = item.Name, Row = counter, TextBox_Name = "txb_" + item.ColumnName, FieldName = item.ColumnName, Width = item.Width });
+                result = Engine.Razor.RunCompile(template, "dateFieldTemplateKey", null, new { Name = item.Name, Row = counter, TextBox_Name = "txb_" + item.ColumnName, FieldName = item.ColumnName, Width = item.WpfWidth, Height = item.WpfHeight, Prompt = item.Prompt, Left = item.WpfXPosition, Bottom = item.WpfYPosition });
             }
 
             return result;

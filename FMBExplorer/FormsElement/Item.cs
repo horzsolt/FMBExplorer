@@ -10,6 +10,7 @@ namespace FMBExplorer.FormsElement
     public class Item : BaseFormsElement
     {
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
+        private double WpfCoordinateCorrection = 1.3333;
 
         public override string ToString()
         {
@@ -50,7 +51,7 @@ namespace FMBExplorer.FormsElement
             this.ColumnName = columnName;
             this.VisualAttributeName = visualAttributeName;
             this.DataType = dataType;
-            
+
 
             Triggers = new List<Trigger>(triggers);
         }
@@ -139,7 +140,7 @@ namespace FMBExplorer.FormsElement
                 PropertyChanged(this, new PropertyChangedEventArgs("ItemsDisplay"));
             }
         }
-        
+
         private string _distanceBetweenRecords;
         public string DistanceBetweenRecords
         {
@@ -392,6 +393,68 @@ namespace FMBExplorer.FormsElement
             {
                 _visualAttributeName = CleanXMLString(value);
                 PropertyChanged(this, new PropertyChangedEventArgs("VisualAttributeName"));
+            }
+        }
+
+        private int _wpfYPosition;
+        public int WpfYPosition
+        {
+            get
+            {
+                if (Int32.TryParse(YPosition, out _wpfYPosition)) {
+                    return Convert.ToInt32(_wpfYPosition * WpfCoordinateCorrection);
+                } else
+                {
+                    throw new InvalidOperationException("WpfYPosition conversion error");
+                }
+            }
+        }
+
+        private int _wpfXPosition;
+        public int WpfXPosition
+        {
+            get
+            {
+                if (Int32.TryParse(XPosition, out _wpfXPosition))
+                {
+                    return Convert.ToInt32(_wpfXPosition * WpfCoordinateCorrection);
+                }
+                else
+                {
+                    throw new InvalidOperationException("WpfXPosition conversion error");
+                }
+            }
+        }
+
+        private int _wpfWidth;
+        public int WpfWidth
+        {
+            get
+            {
+                if (Int32.TryParse(Width, out _wpfWidth))
+                {
+                    return Convert.ToInt32(_wpfWidth * WpfCoordinateCorrection);
+                }
+                else
+                {
+                    throw new InvalidOperationException("WpfWidth conversion error");
+                }
+            }
+        }
+
+        private int _wpfHeight;
+        public int WpfHeight
+        {
+            get
+            {
+                if (Int32.TryParse(Width, out _wpfHeight))
+                {
+                    return Convert.ToInt32(_wpfHeight * WpfCoordinateCorrection);
+                }
+                else
+                {
+                    throw new InvalidOperationException("WpfHeight conversion error");
+                }
             }
         }
     }

@@ -6,6 +6,7 @@ using System.Text;
 
 using RazorEngine;
 using RazorEngine.Templating;
+using System.Web;
 
 namespace FMBExplorer.CodeGen
 {
@@ -31,7 +32,7 @@ namespace FMBExplorer.CodeGen
             using (StreamReader reader = new StreamReader(stream))
             {
                 string template = reader.ReadToEnd();
-                result = Engine.Razor.RunCompile(template, "dataFormTemplateKey", null, new { RowDefs = rowDefs, DataFormFields = columns });
+                result = HttpUtility.HtmlDecode(Engine.Razor.RunCompile(template, "dataFormTemplateKey", null, new { RowDefs = rowDefs, DataFormFields = columns }));
             }
 
             return result;

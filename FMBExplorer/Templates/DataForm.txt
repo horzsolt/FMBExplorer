@@ -9,17 +9,7 @@
     <Window.Resources>
         <CollectionViewSource x:Key="kKPARTNER_CORE_VViewSource" d:DesignSource="{d:DesignInstance {x:Type local:KKPARTNER_CORE_V}, CreateList=True}"/>
     </Window.Resources>
-    <Grid>
-        <Grid x:Name="grid1" DataContext="{StaticResource kKPARTNER_CORE_VViewSource}">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-				@Model.RowDefs
-            </Grid.RowDefinitions>
-			@Model.DataFormFields
-        </Grid>
-
-    </Grid>
+	<StackPanel Orientation="Horizontal">
+			@Raw(@Model.DataFormFields)
+    </StackPanel>
 </Window>

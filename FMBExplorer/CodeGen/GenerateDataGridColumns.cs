@@ -16,7 +16,7 @@ namespace FMBExplorer.CodeGen
             var resourceName = "FMBExplorer.Templates.TextColumn.txt";
 
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
-            using (StreamReader reader = new StreamReader(stream, System.Text.Encoding.GetEncoding("UTF-8")))
+            using (StreamReader reader = new StreamReader(stream))
             {
                 string template = reader.ReadToEnd();
                 result = Engine.Razor.RunCompile(template, "columnTemplate", null, new { Name = item.Name, FieldName = item.ColumnName, Prompt = item.Prompt });
@@ -32,7 +32,7 @@ namespace FMBExplorer.CodeGen
             var resourceName = "FMBExplorer.Templates.DateColumn.txt";
 
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
-            using (StreamReader reader = new StreamReader(stream, System.Text.Encoding.GetEncoding("UTF-8")))
+            using (StreamReader reader = new StreamReader(stream))
             {
                 string template = reader.ReadToEnd();
                 result = Engine.Razor.RunCompile(template, "dateColumnKey", null, new { Name = item.Name, Prompt = item.Prompt, FieldName = item.ColumnName });

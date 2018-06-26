@@ -72,31 +72,31 @@ namespace FMBExplorer
             {
                 Block block = e.NewValue as Block;
 
-                XmlDocument doc = new XmlDocument();
-                XmlDeclaration xmldecl = doc.CreateXmlDeclaration("1.0", "UTF-8", "yes");
+                XmlDocument xml_document = new XmlDocument();
+                XmlDeclaration xmldecl = xml_document.CreateXmlDeclaration("1.0", "UTF-8", "yes");
 
                 if (chkCodeGen.IsChecked == true)
                 {
-                    doc.LoadXml(GenerateDataForm.Generate(block));
+                    xml_document.LoadXml(GenerateDataForm.Generate(block));
                 }
                 else
                 {
-                    doc.LoadXml(GenerateDataGrid.Generate(block));
+                    xml_document.LoadXml(GenerateDataGrid.Generate(block));
                 }
 
-                XmlElement root = doc.DocumentElement;
-                doc.InsertBefore(xmldecl, root);
+                XmlElement root = xml_document.DocumentElement;
+                xml_document.InsertBefore(xmldecl, root);
 
-                StringBuilder sb = new StringBuilder();
-                System.IO.TextWriter tr = new System.IO.StringWriter(sb);
-                XmlTextWriter wr = new XmlTextWriter(tr);
-                wr.Formatting = Formatting.Indented;
-                doc.Save(wr);
-                wr.Close();
+                StringWriter string_writer = new StringWriter();
+                XmlTextWriter xml_text_writer = new XmlTextWriter(string_writer);
+                xml_text_writer.Formatting = Formatting.Indented;
+                xml_document.WriteTo(xml_text_writer);
 
-                documentViewer.XmlDocument = doc;
+                documentViewer.XmlDocument = xml_document;
+                vm.GeneratedCode = string_writer.ToString();
 
-                vm.GeneratedCode = sb.ToString();
+                xml_text_writer.Close();
+                string_writer.Close();
 
             } else
             {

@@ -23,52 +23,55 @@ namespace FMBExplorer.CodeGen
 
             block.Items.ForEach(item =>
             {
-                counter++;
+                if (!String.IsNullOrEmpty(item.Name))
+                {
+                    counter++;
 
-                if (!string.IsNullOrEmpty(item.ItemType))
-                {
-                    switch (item.ItemType)
+                    if (!string.IsNullOrEmpty(item.ItemType))
                     {
-                        case "Text Item":
-                            {
-                                result.Append(GenTextColumn(item, counter)).AppendLine();
-                                break;
-                            }
-                        default:
-                            {
-                                result.Append(GenTextColumn(item, counter)).AppendLine();
-                                break;
-                            }
+                        switch (item.ItemType)
+                        {
+                            case "Text Item":
+                                {
+                                    result.Append(GenTextColumn(item, counter)).AppendLine();
+                                    break;
+                                }
+                            default:
+                                {
+                                    result.Append(GenTextColumn(item, counter)).AppendLine();
+                                    break;
+                                }
+                        }
                     }
-                }
-                else if (!string.IsNullOrEmpty(item.DataType))
-                {
-                    switch (item.DataType)
+                    else if (!string.IsNullOrEmpty(item.DataType))
                     {
-                        case "Date":
-                            {
-                                result.Append(GenDateColumn(item, counter)).AppendLine();
-                                break;
-                            }
-                        case "Char":
-                            {
-                                result.Append(GenTextColumn(item, counter)).AppendLine();
-                                break;
-                            }
-                        default:
-                            {
-                                result.Append(GenTextColumn(item, counter)).AppendLine();
-                                break;
-                            }
+                        switch (item.DataType)
+                        {
+                            case "Date":
+                                {
+                                    result.Append(GenDateColumn(item, counter)).AppendLine();
+                                    break;
+                                }
+                            case "Char":
+                                {
+                                    result.Append(GenTextColumn(item, counter)).AppendLine();
+                                    break;
+                                }
+                            default:
+                                {
+                                    result.Append(GenTextColumn(item, counter)).AppendLine();
+                                    break;
+                                }
+                        }
                     }
-                }
-                else if ((string.IsNullOrEmpty(item.ItemType) && (string.IsNullOrEmpty(item.DataType))))
-                {
-                    result.Append(GenTextColumn(item, counter));
-                }
-                else
-                {
-                    throw new InvalidDataException(string.Format("Unknown Item found. {0} ", item.ToString()));
+                    else if ((string.IsNullOrEmpty(item.ItemType) && (string.IsNullOrEmpty(item.DataType))))
+                    {
+                        result.Append(GenTextColumn(item, counter));
+                    }
+                    else
+                    {
+                        throw new InvalidDataException(string.Format("Unknown Item found. {0} ", item.ToString()));
+                    }
                 }
             });
 
