@@ -447,7 +447,7 @@ namespace FMBExplorer.FormsElement
         {
             get
             {
-                if (Int32.TryParse(Width, out _wpfHeight))
+                if (Int32.TryParse(Height, out _wpfHeight))
                 {
                     return Convert.ToInt32(_wpfHeight * WpfCoordinateCorrection);
                 }

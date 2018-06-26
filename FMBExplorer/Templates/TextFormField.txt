@@ -1,4 +1,4 @@
 ﻿            <StackPanel Margin="0,0,0,0" Orientation="Horizontal" Canvas.Left="@Model.Left" Canvas.Top="@Model.Bottom">
-				<Label  Margin="0,0,0,0" Content="@Model.Prompt"/>
+				<Label  Margin="0,0,0,0" Content="@Model.Prompt" Height="@Model.Height"/>
 				<TextBox  Margin="0,0,0,0" x:Name="@Model.TextBox_Name" Text="{Binding @Model.FieldName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Width="@Model.Width" Height="@Model.Height"/>
 			</StackPanel>
