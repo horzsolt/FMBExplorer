@@ -44,7 +44,7 @@ namespace FMBExplorer.FormsElement
             this.DeleteAllowed = deleteAllowed;
             this.UpdateAllowed = updateAllowed;
             this.QueryDataSourceName = queryDataSourceName;
-            this.RecordsDisplayCount = recordDisplayCount;
+            this.RecordsDisplayCount = String.IsNullOrEmpty(recordDisplayCount) ? 0 : Convert.ToInt32(CleanXMLString(recordDisplayCount));
             this.ScrollbarTabPageName = scrollbarTabPageName;
             this.NextNavigationBlockName = nextNavigationBlockName;
             this.QueryAllRecords = queryAllRecords;
@@ -152,8 +152,8 @@ namespace FMBExplorer.FormsElement
             }
         }
 
-        private string _recordsDisplayCount;
-        public string RecordsDisplayCount
+        private int _recordsDisplayCount;
+        public int RecordsDisplayCount
         {
 
             get
@@ -163,7 +163,7 @@ namespace FMBExplorer.FormsElement
 
             set
             {
-                _recordsDisplayCount = CleanXMLString(value);
+                _recordsDisplayCount = value;
                 PropertyChanged(this, new PropertyChangedEventArgs("RecordsDisplayCount"));
             }
         }

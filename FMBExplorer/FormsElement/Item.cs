@@ -29,7 +29,7 @@ namespace FMBExplorer.FormsElement
             string distanceBetweenRecords, string width, string canvasName, string height, string required,
             string insertAllowed, string deleteAllowed, string updateAllowed, string itemType, string prompt,
             string tabPageName, string promptDisplayStyle, string columnName, string visualAttributeName,
-            string dataType, IEnumerable<Trigger> triggers, string canvas, string visible)
+            string dataType, IEnumerable<Trigger> triggers, string canvas, string visible, string promptAttachmentEdge)
         {
             this.Name = name;
             this.MaximumLength = maximumLength;
@@ -53,6 +53,7 @@ namespace FMBExplorer.FormsElement
             this.DataType = dataType;
             this.Canvas = canvas;
             this.Visible = String.IsNullOrEmpty(visible) ? true : Convert.ToBoolean(CleanXMLString(visible));
+            this.PromptAttachmentEdge = promptAttachmentEdge;
 
             Triggers = new List<Trigger>(triggers);
         }
@@ -488,6 +489,22 @@ namespace FMBExplorer.FormsElement
                 {
                     throw new InvalidOperationException("WpfHeight conversion error");
                 }
+            }
+        }
+
+        private string _promptAttachmentEdge;
+        public string PromptAttachmentEdge
+        {
+
+            get
+            {
+                return _promptAttachmentEdge;
+            }
+
+            set
+            {
+                _promptAttachmentEdge = CleanXMLString(value);
+                PropertyChanged(this, new PropertyChangedEventArgs("PromptAttachmentEdge"));
             }
         }
     }

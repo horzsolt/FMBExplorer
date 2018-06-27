@@ -1,7 +1,6 @@
 ﻿using FMBExplorer.CodeGen;
 using FMBExplorer.Common;
 using FMBExplorer.FormsElement;
-using FMBExplorer.Preview;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -76,7 +75,7 @@ namespace FMBExplorer
                 XmlDocument xml_document = new XmlDocument();
                 XmlDeclaration xmldecl = xml_document.CreateXmlDeclaration("1.0", "UTF-8", "yes");
 
-                if (vm.IsGridCodeGen == false)
+                if (FormsUtility.IsGrid(block) == false)
                 {
                     xml_document.LoadXml(GenerateDataForm.Generate(block));
                 }
@@ -117,11 +116,12 @@ namespace FMBExplorer
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            var mainContent = XamlReader.Parse(vm.GeneratedCode);
-
-            /*PreviewWindow preview = new PreviewWindow();
-            preview.Content = mainContent;
-            preview.ShowDialog();*/
+            if (!string.IsNullOrEmpty(vm.GeneratedCode))
+            {
+                Window previewWindow = (Window)XamlReader.Parse(vm.GeneratedCode);
+                previewWindow.WindowState = WindowState.Maximized;
+                previewWindow.ShowDialog();
+            }
         }
     }
 }

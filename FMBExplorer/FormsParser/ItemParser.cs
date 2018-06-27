@@ -38,6 +38,7 @@ namespace FMBExplorer.FormsParser
                     dataType: el.Attribute(ns + "DataType")?.Value.ToString(),
                     canvas: el.Attribute(ns + "Canvas")?.Value.ToString(),
                     visible: el.Attribute(ns + "Visible")?.Value.ToString(),
+                    promptAttachmentEdge: el.Attribute(ns + "PromptAttachmentEdge")?.Value.ToString(),
                     triggers:
                         from trg in el.Descendants(ns + "Trigger")
                         select new Trigger(

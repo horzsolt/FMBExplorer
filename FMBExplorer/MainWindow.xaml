@@ -31,9 +31,9 @@
     </Window.Resources>
     <Grid ShowGridLines="True">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -47,7 +47,7 @@
             <Label Margin="10,0,10,10" Content="{Binding CurrentFolder}" x:Name="lblDirectory" />
         </StackPanel>
         <StackPanel Grid.Column="2" Grid.Row="0" HorizontalAlignment="Left" Name="StackPanel3" VerticalAlignment="Stretch" Orientation="Horizontal">
-            <CheckBox x:Name="chkCodeGen" Content="Check to form" IsChecked="{Binding IsFormsCodeGen}"/>
+            <CheckBox x:Name="chkCodeGen" Content="Check to form" IsChecked="{Binding IsFormsCodeGen}" Visibility="Hidden"/>
             <Button Margin="10,0,10,5" Content="Copy to clipboard" Width="110" Click="Button_Click_2"/>            
             <Button Margin="10,0,10,5" Content="Select folder" Width="110" Click="Button_Click"/>
             <Button Margin="10,0,10,5" Content="Scan" Width="110" Click="Button_Click_1"/>
