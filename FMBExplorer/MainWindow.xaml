@@ -51,6 +51,7 @@
             <Button Margin="10,0,10,5" Content="Copy to clipboard" Width="110" Click="Button_Click_2"/>            
             <Button Margin="10,0,10,5" Content="Select folder" Width="110" Click="Button_Click"/>
             <Button Margin="10,0,10,5" Content="Scan" Width="110" Click="Button_Click_1"/>
+            <Button Margin="10,0,10,5" Content="Preview" Width="110" Click="Button_Click_4"/>            
             <Button Margin="10,0,10,5" Content="Exit" Width="110" Click="Button_Click_3"/>     
         </StackPanel>
         <ProgressBar Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Name="ProgressBar1" HorizontalAlignment="Stretch" Margin="10,0,10,10"/>

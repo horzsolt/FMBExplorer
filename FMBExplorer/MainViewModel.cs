@@ -14,7 +14,7 @@ namespace FMBExplorer
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
 
         private bool? _isFormsCodeGen;
-        public bool? IsFormsCodeGen
+        public bool? IsGridCodeGen
         {
             get
             {

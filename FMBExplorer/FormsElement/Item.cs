@@ -29,7 +29,7 @@ namespace FMBExplorer.FormsElement
             string distanceBetweenRecords, string width, string canvasName, string height, string required,
             string insertAllowed, string deleteAllowed, string updateAllowed, string itemType, string prompt,
             string tabPageName, string promptDisplayStyle, string columnName, string visualAttributeName,
-            string dataType, IEnumerable<Trigger> triggers)
+            string dataType, IEnumerable<Trigger> triggers, string canvas, string visible)
         {
             this.Name = name;
             this.MaximumLength = maximumLength;
@@ -51,7 +51,8 @@ namespace FMBExplorer.FormsElement
             this.ColumnName = columnName;
             this.VisualAttributeName = visualAttributeName;
             this.DataType = dataType;
-
+            this.Canvas = canvas;
+            this.Visible = String.IsNullOrEmpty(visible) ? true : Convert.ToBoolean(CleanXMLString(visible));
 
             Triggers = new List<Trigger>(triggers);
         }
@@ -377,6 +378,38 @@ namespace FMBExplorer.FormsElement
             {
                 _columnName = CleanXMLString(value);
                 PropertyChanged(this, new PropertyChangedEventArgs("ColumnName"));
+            }
+        }
+
+        private string _canvas;
+        public string Canvas
+        {
+
+            get
+            {
+                return _canvas;
+            }
+
+            set
+            {
+                _canvas = CleanXMLString(value);
+                PropertyChanged(this, new PropertyChangedEventArgs("Canvas"));
+            }
+        }
+
+        private bool _visible;
+        public bool Visible
+        {
+
+            get
+            {
+                return _visible;
+            }
+
+            set
+            {
+                _visible = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("Canvas"));
             }
         }
 

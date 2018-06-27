@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
 using System.Text;
-using System.Threading.Tasks;
-using System.Web.Razor.Parser.SyntaxTree;
-using RazorEngine;
-using RazorEngine.Templating;
 using FMBExplorer.FormsElement;
 
 namespace FMBExplorer.CodeGen
@@ -23,7 +17,7 @@ namespace FMBExplorer.CodeGen
 
             block.Items.ForEach(item =>
             {
-                if (!String.IsNullOrEmpty(item.Name))
+                if ((!String.IsNullOrEmpty(item.ColumnName)) && ((item.Visible == true) || (!String.IsNullOrEmpty(item.Canvas))))
                 {
                     counter++;
 
