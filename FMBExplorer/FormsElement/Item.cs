@@ -12,6 +12,12 @@ namespace FMBExplorer.FormsElement
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
         private double WpfCoordinateCorrection = 1.3333;
 
+        public enum ItemLabelPosition
+        {
+            Start,
+            Top
+        };
+
         public override string ToString()
         {
             return String.Format("{0} - Triggers: {1}", this.Prompt, this.Triggers.Count());
@@ -54,6 +60,19 @@ namespace FMBExplorer.FormsElement
             this.Canvas = canvas;
             this.Visible = String.IsNullOrEmpty(visible) ? true : Convert.ToBoolean(CleanXMLString(visible));
             this.PromptAttachmentEdge = promptAttachmentEdge;
+
+            if (promptAttachmentEdge == "Start")
+            {
+                this.LabelPosition = ItemLabelPosition.Start;
+            }
+            else if (promptAttachmentEdge == "Top")
+            {
+                this.LabelPosition = ItemLabelPosition.Top;
+            }
+            else
+            {
+                this.LabelPosition = ItemLabelPosition.Start;
+            }
 
             Triggers = new List<Trigger>(triggers);
         }
@@ -435,9 +454,11 @@ namespace FMBExplorer.FormsElement
         {
             get
             {
-                if (Int32.TryParse(YPosition, out _wpfYPosition)) {
+                if (Int32.TryParse(YPosition, out _wpfYPosition))
+                {
                     return Convert.ToInt32(_wpfYPosition * WpfCoordinateCorrection);
-                } else
+                }
+                else
                 {
                     throw new InvalidOperationException("WpfYPosition conversion error");
                 }
@@ -507,5 +528,7 @@ namespace FMBExplorer.FormsElement
                 PropertyChanged(this, new PropertyChangedEventArgs("PromptAttachmentEdge"));
             }
         }
+
+        public ItemLabelPosition LabelPosition { get; set; }
     }
 }

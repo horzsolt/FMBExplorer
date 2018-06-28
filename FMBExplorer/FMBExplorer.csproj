@@ -67,6 +67,7 @@
     <Compile Include="CodeGen\GenerateDataFormFields.cs" />
     <Compile Include="Common\ObservableDictionary.cs" />
     <Compile Include="FormsElement\FormsUtility.cs" />
+    <Compile Include="FormsElement\Position.cs" />
     <Compile Include="XMLViewer\Viewer.xaml.cs">
       <DependentUpon>Viewer.xaml</DependentUpon>
     </Compile>

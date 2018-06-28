@@ -1,6 +1,6 @@
-﻿            <StackPanel Margin="0,0,0,0" Orientation="Horizontal" Canvas.Left="@Model.LabelLeft" Canvas.Top="@Model.Bottom">
+﻿            <StackPanel Margin="0,0,0,0" Orientation="Horizontal" Canvas.Left="@Model.LabelLeft" Canvas.Top="@Model.LabelTop">
 				<Label  Margin="0,0,0,0" Content="@Model.Prompt"/>
 			</StackPanel>
-            <StackPanel Margin="0,0,0,0" Orientation="Horizontal" Canvas.Left="@Model.Left" Canvas.Top="@Model.Bottom">
+            <StackPanel Margin="0,0,0,0" Orientation="Horizontal" Canvas.Left="@Model.Left" Canvas.Top="@Model.Top">
 				<TextBox  Margin="0,0,0,0" x:Name="@Model.TextBox_Name" Text="{Binding @Model.FieldName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Width="@Model.Width" Height="@Model.Height"/>
 			</StackPanel>

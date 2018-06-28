@@ -18,7 +18,7 @@ namespace FMBExplorer.CodeGen
         public static string Generate(Block block)
         {
 
-            var columns = new GenerateDataFormFields().Generate(block);
+            var columns = new GenerateDataGridColumns().Generate(block);
             string result = "";
             
             var resourceName = "FMBExplorer.Templates.DataGrid.txt";
