@@ -38,6 +38,9 @@
       <HintPath>..\packages\RazorEngine.3.10.0\lib\net45\RazorEngine.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Activities" />
+    <Reference Include="System.Activities.Core.Presentation" />
+    <Reference Include="System.Activities.Presentation" />
     <Reference Include="System.Data" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -68,6 +71,8 @@
     <Compile Include="Common\ObservableDictionary.cs" />
     <Compile Include="FormsElement\FormsUtility.cs" />
     <Compile Include="FormsElement\Position.cs" />
+    <Compile Include="PropertyGrid\Properties.cs" />
+    <Compile Include="PropertyGrid\WpfPropertyGrid.cs" />
     <Compile Include="XMLViewer\Viewer.xaml.cs">
       <DependentUpon>Viewer.xaml</DependentUpon>
     </Compile>

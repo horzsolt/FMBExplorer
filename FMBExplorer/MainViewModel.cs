@@ -3,15 +3,14 @@ using FMBExplorer.FormsElement;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FMBExplorer
 {
     public class MainViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
+
+        public FMBExplorer.PropertyGrid.Properties CodeGenProperties { get; set; }
 
         private bool? _isFormsCodeGen;
         public bool? IsGridCodeGen

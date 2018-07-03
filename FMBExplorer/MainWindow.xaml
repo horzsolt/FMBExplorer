@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:treeData="clr-namespace:FMBExplorer.FormsElement"
         xmlns:XMLViewer="clr-namespace:FMBExplorer.XMLViewer"
+        xmlns:wpg="clr-namespace:FMBExplorer.PropertyGrid"
         mc:Ignorable="d"
         Title="FMB browser" Height="450" Width="935.989" WindowState="Maximized"
         >
@@ -80,5 +81,6 @@
             <TextBox Text="{Binding GeneratedCode}" x:Name="xamlBlock" HorizontalScrollBarVisibility="Auto" 
                      VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" AcceptsReturn="True" MaxHeight="500" MinWidth="800" MaxWidth="900"/>
         </StackPanel>
+        <wpg:WpfPropertyGrid x:Name="PropertyGrid1" Width="200" Height="260" />
     </Grid>
 </Window>
