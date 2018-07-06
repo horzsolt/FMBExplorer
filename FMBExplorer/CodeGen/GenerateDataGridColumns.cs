@@ -2,6 +2,7 @@
 using System.Reflection;
 using System.Text;
 using FMBExplorer.FormsElement;
+using FMBExplorer.PropertyGrid;
 using RazorEngine;
 using RazorEngine.Templating;
 
@@ -9,7 +10,7 @@ namespace FMBExplorer.CodeGen
 {
     public class GenerateDataGridColumns : AbstractFieldGenerator
     {
-        protected override string GenTextColumn(Item item, int counter)
+        protected override string GenTextColumn(Item item, int counter, CodeGenProperties codeGenProperties)
         {
             string result = "";
 
@@ -25,7 +26,7 @@ namespace FMBExplorer.CodeGen
             return result;
         }
 
-        protected override string GenDateColumn(Item item, int counter)
+        protected override string GenDateColumn(Item item, int counter, CodeGenProperties codeGenProperties)
         {
             string result = "";
 

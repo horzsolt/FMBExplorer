@@ -7,6 +7,7 @@ using System.Text;
 using RazorEngine;
 using RazorEngine.Templating;
 using System.Web;
+using FMBExplorer.PropertyGrid;
 
 namespace FMBExplorer.CodeGen
 {
@@ -14,7 +15,7 @@ namespace FMBExplorer.CodeGen
     {
         static Assembly assembly = Assembly.GetExecutingAssembly();
 
-        public static string Generate(Block block)
+        public static string Generate(Block block, CodeGenProperties codeGenProperties)
         {
 
             StringBuilder rowDefs = new StringBuilder();
@@ -23,7 +24,7 @@ namespace FMBExplorer.CodeGen
                 rowDefs.Append("<RowDefinition Height=\"Auto\"/>");
             });
 
-            var columns = new GenerateDataFormFields().Generate(block);
+            var columns = new GenerateDataFormFields().Generate(block, codeGenProperties);
             string result = "";
 
             var resourceName = "FMBExplorer.Templates.DataForm.txt";
@@ -32,7 +33,7 @@ namespace FMBExplorer.CodeGen
             using (StreamReader reader = new StreamReader(stream))
             {
                 string template = reader.ReadToEnd();
-                result = HttpUtility.HtmlDecode(Engine.Razor.RunCompile(template, "dataFormTemplateKey", null, new { RowDefs = rowDefs, DataFormFields = columns }));
+                result = HttpUtility.HtmlDecode(Engine.Razor.RunCompile(template, "dataFormTemplateKey", null, new { RowDefs = rowDefs, DataFormFields = columns, CollectionViewSourceName = codeGenProperties.CollectionViewSourceName, BindingSource=codeGenProperties.BindingSource }));
             }
 
             return result;

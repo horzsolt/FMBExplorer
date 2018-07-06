@@ -1,6 +1,6 @@
 ﻿using System.IO;
 using FMBExplorer.FormsElement;
-
+using FMBExplorer.PropertyGrid;
 using RazorEngine;
 using RazorEngine.Templating;
 
@@ -9,7 +9,7 @@ namespace FMBExplorer.CodeGen
     public class GenerateDataFormFields : AbstractFieldGenerator
     {
 
-        protected override string GenTextColumn(Item item, int counter)
+        protected override string GenTextColumn(Item item, int counter, CodeGenProperties codeGenProperties)
         {
             string result = "";
 
@@ -27,7 +27,7 @@ namespace FMBExplorer.CodeGen
             return result;
         }
 
-        protected override string GenDateColumn(Item item, int counter)
+        protected override string GenDateColumn(Item item, int counter, CodeGenProperties codeGenProperties)
         {
             string result = "";
 
@@ -39,7 +39,7 @@ namespace FMBExplorer.CodeGen
             using (StreamReader reader = new StreamReader(stream))
             {
                 string template = reader.ReadToEnd();
-                result = Engine.Razor.RunCompile(template, "dateFieldTemplateKey", null, new { Name = item.Name, Row = counter, TextBox_Name = "txb_" + item.ColumnName, FieldName = item.ColumnName, Width = item.WpfWidth, Height = item.WpfHeight, Prompt = item.Prompt, Left = item.WpfXPosition, LabelLeft = labelPosition.Left, LabelTop = labelPosition.Top, Top = item.WpfYPosition });
+                result = Engine.Razor.RunCompile(template, "dateFieldTemplateKey", null, new { Name = item.Name, CollectionViewSourceName = codeGenProperties.CollectionViewSourceName, BindingSource = codeGenProperties.BindingSource, Row = counter, TextBox_Name = "txb_" + item.ColumnName, FieldName = item.ColumnName, Width = item.WpfWidth, Height = item.WpfHeight, Prompt = item.Prompt, Left = item.WpfXPosition, LabelLeft = labelPosition.Left, LabelTop = labelPosition.Top, Top = item.WpfYPosition });
             }
 
             return result;

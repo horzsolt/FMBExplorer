@@ -71,7 +71,7 @@
     <Compile Include="Common\ObservableDictionary.cs" />
     <Compile Include="FormsElement\FormsUtility.cs" />
     <Compile Include="FormsElement\Position.cs" />
-    <Compile Include="PropertyGrid\Properties.cs" />
+    <Compile Include="PropertyGrid\CodeGenProperties.cs" />
     <Compile Include="PropertyGrid\WpfPropertyGrid.cs" />
     <Compile Include="XMLViewer\Viewer.xaml.cs">
       <DependentUpon>Viewer.xaml</DependentUpon>

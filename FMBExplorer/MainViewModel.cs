@@ -10,7 +10,7 @@ namespace FMBExplorer
     {
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
 
-        public FMBExplorer.PropertyGrid.Properties CodeGenProperties { get; set; }
+        public FMBExplorer.PropertyGrid.CodeGenProperties CodeGenProperties { get; set; }
 
         private bool? _isFormsCodeGen;
         public bool? IsGridCodeGen
@@ -42,6 +42,8 @@ namespace FMBExplorer
                 PropertyChanged(this, new PropertyChangedEventArgs("GeneratedCode"));
             }
         }
+
+        public Block selectedBlock { get; set; }
 
         private string _currentFolder;
         public string CurrentFolder

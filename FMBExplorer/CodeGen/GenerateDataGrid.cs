@@ -1,4 +1,5 @@
 ﻿using FMBExplorer.FormsElement;
+using FMBExplorer.PropertyGrid;
 using RazorEngine;
 using RazorEngine.Templating;
 using System;
@@ -15,10 +16,10 @@ namespace FMBExplorer.CodeGen
     {
         static Assembly assembly = Assembly.GetExecutingAssembly();
 
-        public static string Generate(Block block)
+        public static string Generate(Block block, CodeGenProperties codeGenProperties)
         {
 
-            var columns = new GenerateDataGridColumns().Generate(block);
+            var columns = new GenerateDataGridColumns().Generate(block, codeGenProperties);
             string result = "";
             
             var resourceName = "FMBExplorer.Templates.DataGrid.txt";
@@ -27,7 +28,7 @@ namespace FMBExplorer.CodeGen
             using (StreamReader reader = new StreamReader(stream))
             {
                 string template = reader.ReadToEnd();
-                result = Engine.Razor.RunCompile(template, "templateKey", null, new { Name = block.Name, Columns = columns });
+                result = Engine.Razor.RunCompile(template, "templateKey", null, new { Name = block.Name, CollectionViewSourceName = codeGenProperties.CollectionViewSourceName, BindingSource = codeGenProperties.BindingSource, Columns = columns });
             }
 
             return result;

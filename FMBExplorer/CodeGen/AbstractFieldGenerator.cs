@@ -3,6 +3,7 @@ using System.IO;
 using System.Reflection;
 using System.Text;
 using FMBExplorer.FormsElement;
+using FMBExplorer.PropertyGrid;
 
 namespace FMBExplorer.CodeGen
 {
@@ -10,7 +11,7 @@ namespace FMBExplorer.CodeGen
     {
         protected Assembly assembly = Assembly.GetExecutingAssembly();
 
-        public string Generate(FormsElement.Block block)
+        public string Generate(FormsElement.Block block, CodeGenProperties codeGenProperties)
         {
             StringBuilder result = new StringBuilder("");
             int counter = 0;
@@ -27,12 +28,12 @@ namespace FMBExplorer.CodeGen
                         {
                             case "Text Item":
                                 {
-                                    result.Append(GenTextColumn(item, counter)).AppendLine();
+                                    result.Append(GenTextColumn(item, counter, codeGenProperties)).AppendLine();
                                     break;
                                 }
                             default:
                                 {
-                                    result.Append(GenTextColumn(item, counter)).AppendLine();
+                                    result.Append(GenTextColumn(item, counter, codeGenProperties)).AppendLine();
                                     break;
                                 }
                         }
@@ -43,24 +44,24 @@ namespace FMBExplorer.CodeGen
                         {
                             case "Date":
                                 {
-                                    result.Append(GenDateColumn(item, counter)).AppendLine();
+                                    result.Append(GenDateColumn(item, counter, codeGenProperties)).AppendLine();
                                     break;
                                 }
                             case "Char":
                                 {
-                                    result.Append(GenTextColumn(item, counter)).AppendLine();
+                                    result.Append(GenTextColumn(item, counter, codeGenProperties)).AppendLine();
                                     break;
                                 }
                             default:
                                 {
-                                    result.Append(GenTextColumn(item, counter)).AppendLine();
+                                    result.Append(GenTextColumn(item, counter, codeGenProperties)).AppendLine();
                                     break;
                                 }
                         }
                     }
                     else if ((string.IsNullOrEmpty(item.ItemType) && (string.IsNullOrEmpty(item.DataType))))
                     {
-                        result.Append(GenTextColumn(item, counter));
+                        result.Append(GenTextColumn(item, counter, codeGenProperties));
                     }
                     else
                     {
@@ -72,7 +73,7 @@ namespace FMBExplorer.CodeGen
             return result.ToString();
         }
 
-        protected abstract string GenTextColumn(Item item, int counter);
-        protected abstract string GenDateColumn(Item item, int counter);
+        protected abstract string GenTextColumn(Item item, int counter, CodeGenProperties codeGenProperties);
+        protected abstract string GenDateColumn(Item item, int counter, CodeGenProperties codeGenProperties);
     }
 }

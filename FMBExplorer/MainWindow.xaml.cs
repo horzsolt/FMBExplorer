@@ -1,6 +1,7 @@
 ﻿using FMBExplorer.CodeGen;
 using FMBExplorer.Common;
 using FMBExplorer.FormsElement;
+using FMBExplorer.PropertyGrid;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -23,6 +24,8 @@ namespace FMBExplorer
             vm.CurrentFolder = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Resource");
             vm.IsGridCodeGen = false;
             DataContext = vm;
+
+            genCodeBtn.IsEnabled = false;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -70,37 +73,23 @@ namespace FMBExplorer
         {
             if (e.NewValue is Block)
             {
+
                 Block block = e.NewValue as Block;
+                vm.selectedBlock = block;
 
-                XmlDocument xml_document = new XmlDocument();
-                XmlDeclaration xmldecl = xml_document.CreateXmlDeclaration("1.0", "UTF-8", "yes");
+                genCodeBtn.IsEnabled = true;
 
-                if (FormsUtility.IsGrid(block) == false)
-                {
-                    xml_document.LoadXml(GenerateDataForm.Generate(block));
-                }
-                else
-                {
-                    xml_document.LoadXml(GenerateDataGrid.Generate(block));
-                }
+                CodeGenProperties codeGenProps = new CodeGenProperties();
+                codeGenProps.BindingSource = vm.selectedBlock.Name;
+                codeGenProps.CollectionViewSourceName = vm.selectedBlock.Name + "_ViewSource";
 
-                XmlElement root = xml_document.DocumentElement;
-                xml_document.InsertBefore(xmldecl, root);
-
-                StringWriter string_writer = new StringWriter();
-                XmlTextWriter xml_text_writer = new XmlTextWriter(string_writer);
-                xml_text_writer.Formatting = Formatting.Indented;
-                xml_document.WriteTo(xml_text_writer);
-
-                documentViewer.XmlDocument = xml_document;
-                vm.GeneratedCode = string_writer.ToString();
-
-                xml_text_writer.Close();
-                string_writer.Close();
+                vm.CodeGenProperties = codeGenProps;
+                PropertyGrid1.SelectedObject = vm.CodeGenProperties;
 
             } else
             {
                 vm.GeneratedCode = "";
+                genCodeBtn.IsEnabled = false;
             }
         }
 
@@ -122,6 +111,36 @@ namespace FMBExplorer
                 previewWindow.WindowState = WindowState.Maximized;
                 previewWindow.ShowDialog();
             }
+        }
+
+        private void genCodeBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+            XmlDocument xml_document = new XmlDocument();
+            XmlDeclaration xmldecl = xml_document.CreateXmlDeclaration("1.0", "UTF-8", "yes");
+
+            if (vm.CodeGenProperties.DataEntryStyle == CodeGenProperties.DataEntry.Form)
+            {
+                xml_document.LoadXml(GenerateDataForm.Generate(vm.selectedBlock, vm.CodeGenProperties));
+            }
+            else if (vm.CodeGenProperties.DataEntryStyle == CodeGenProperties.DataEntry.Grid)
+            {
+                xml_document.LoadXml(GenerateDataGrid.Generate(vm.selectedBlock, vm.CodeGenProperties));
+            }
+
+            XmlElement root = xml_document.DocumentElement;
+            xml_document.InsertBefore(xmldecl, root);
+
+            StringWriter string_writer = new StringWriter();
+            XmlTextWriter xml_text_writer = new XmlTextWriter(string_writer);
+            xml_text_writer.Formatting = Formatting.Indented;
+            xml_document.WriteTo(xml_text_writer);
+
+            documentViewer.XmlDocument = xml_document;
+            vm.GeneratedCode = string_writer.ToString();
+
+            xml_text_writer.Close();
+            string_writer.Close();
         }
     }
 }
