@@ -28,7 +28,7 @@ namespace FMBExplorer.CodeGen
             using (StreamReader reader = new StreamReader(stream))
             {
                 string template = reader.ReadToEnd();
-                result = Engine.Razor.RunCompile(template, "templateKey", null, new { Name = block.Name, CollectionViewSourceName = codeGenProperties.CollectionViewSourceName, BindingSource = codeGenProperties.BindingSource, Columns = columns });
+                result = Engine.Razor.RunCompile(template, "templateKey", null, new { Name = codeGenProperties.Name, CollectionViewSourceName = codeGenProperties.CollectionViewSourceName, BindingSource = codeGenProperties.BindingSource, Columns = columns });
             }
 
             return result;

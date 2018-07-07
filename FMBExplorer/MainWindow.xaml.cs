@@ -81,7 +81,19 @@ namespace FMBExplorer
 
                 CodeGenProperties codeGenProps = new CodeGenProperties();
                 codeGenProps.BindingSource = vm.selectedBlock.Name;
+                codeGenProps.Name = vm.selectedBlock.Name;
                 codeGenProps.CollectionViewSourceName = vm.selectedBlock.Name + "_ViewSource";
+
+                if (FormsUtility.IsGrid(vm.selectedBlock))
+                {
+                    codeGenProps.DataEntryStyle = CodeGenProperties.DataEntry.Grid;
+                } else if (FormsUtility.IsForm(vm.selectedBlock))
+                {
+                    codeGenProps.DataEntryStyle = CodeGenProperties.DataEntry.Form;
+                } else
+                {
+                    codeGenProps.DataEntryStyle = CodeGenProperties.DataEntry.Simple;
+                }
 
                 vm.CodeGenProperties = codeGenProps;
                 PropertyGrid1.SelectedObject = vm.CodeGenProperties;

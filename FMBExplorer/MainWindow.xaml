@@ -7,7 +7,7 @@
         xmlns:XMLViewer="clr-namespace:FMBExplorer.XMLViewer"
         xmlns:wpg="clr-namespace:FMBExplorer.PropertyGrid"
         mc:Ignorable="d"
-        Title="FMB browser" Height="450" Width="935.989" WindowState="Maximized">
+        Title="FMB browser" WindowState="Maximized">
     <Window.Resources>
         <DataTemplate x:Key="triggers" DataType="{x:Type treeData:Item}">
             <StackPanel Orientation="Horizontal">

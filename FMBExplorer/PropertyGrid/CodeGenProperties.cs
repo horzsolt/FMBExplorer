@@ -22,6 +22,11 @@ namespace FMBExplorer.PropertyGrid
         [Category("Code Generation")]
         [DisplayName("Binding Source")]
         public string BindingSource { get; set; }
+
+        [Category("Code Generation")]
+        [DisplayName("Name")]
+        public string Name { get; set; }
+
         public enum DataEntry { Simple, Form, Grid }
 
         [Category("Code Generation")]
