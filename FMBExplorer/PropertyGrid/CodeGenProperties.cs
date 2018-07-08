@@ -15,21 +15,41 @@ namespace FMBExplorer.PropertyGrid
             this.Guid = System.Guid.NewGuid();
         }
 
-        [Category("Code Generation")]
+        [Category("C# Code Generation")]
+        [DisplayName("Partial Class Namespace")]
+        public string CodebehindNamespace { get; set; }
+
+        [Category("C# Code Generation")]
+        [DisplayName("Window Name")]
+        public string WindowName { get; set; }
+
+        [Category("C# Code Generation")]
+        [DisplayName("Entity Name")]
+        public string EntityName { get; set; }
+
+        [Category("XAML Generation")]
         [DisplayName("Collection View Source Name")]
         public string CollectionViewSourceName { get; set; }
 
-        [Category("Code Generation")]
+        [Category("XAML Generation")]
         [DisplayName("Binding Source")]
         public string BindingSource { get; set; }
 
-        [Category("Code Generation")]
+        [Category("XAML Generation")]
         [DisplayName("Name")]
         public string Name { get; set; }
 
+        [Category("View Model")]
+        [DisplayName("View Model Name")]
+        public string ViewModelName { get; set; }
+
+        [Category("View Model")]
+        [DisplayName("Enabled Property")]
+        public string EnabledPropertyName { get; set; }
+
         public enum DataEntry { Simple, Form, Grid }
 
-        [Category("Code Generation")]
+        [Category("XAML Generation")]
         [DisplayName("Data Entry Type")]
         public DataEntry DataEntryStyle { get; set; }
 

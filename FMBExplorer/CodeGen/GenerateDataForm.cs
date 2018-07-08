@@ -33,7 +33,12 @@ namespace FMBExplorer.CodeGen
             using (StreamReader reader = new StreamReader(stream))
             {
                 string template = reader.ReadToEnd();
-                result = HttpUtility.HtmlDecode(Engine.Razor.RunCompile(template, "dataFormTemplateKey", null, new { RowDefs = rowDefs, DataFormFields = columns, CollectionViewSourceName = codeGenProperties.CollectionViewSourceName, BindingSource=codeGenProperties.BindingSource }));
+                result = HttpUtility.HtmlDecode(Engine.Razor.RunCompile(template, "dataFormTemplateKey", null, new {
+                    ViewModelName = codeGenProperties.ViewModelName,
+                    WindowName = codeGenProperties.WindowName,
+                    RowDefs = rowDefs, DataFormFields = columns,
+                    CollectionViewSourceName = codeGenProperties.CollectionViewSourceName,
+                    BindingSource =codeGenProperties.BindingSource }));
             }
 
             return result;

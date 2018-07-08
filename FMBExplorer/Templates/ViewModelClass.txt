@@ -1,0 +1,7 @@
+﻿namespace KKNET.ViewModel
+{
+    public class @Model.ViewModelName
+    {
+        public bool @Model.EnabledPropertyName { get; set; }
+    }
+}

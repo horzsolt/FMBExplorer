@@ -2,5 +2,9 @@
 				<Label  Margin="0,5,2,5" Content="@Model.Prompt"/>
 			</StackPanel>
             <StackPanel Margin="2,5,2,5" Orientation="Horizontal" Canvas.Left="@Model.Left" Canvas.Top="@Model.Top">
-				<TextBox  Margin="0,5,0,5" x:Name="@Model.TextBox_Name" Text="{Binding Source={StaticResource @Model.CollectionViewSourceName}, Path=@Model.FieldName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Width="@Model.Width" Height="@Model.Height"/>
+				<TextBox  Margin="0,5,0,5" x:Name="@Model.TextBox_Name" 
+					IsEnabled="{Binding Source={StaticResource @Model.ViewModelName}, Path=@Model.EnabledPropertyName}"
+					Text="{Binding Source={StaticResource @Model.CollectionViewSourceName}, Path=@Model.FieldName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" 
+					Width="@Model.Width" Height="@Model.Height"
+				/>
 			</StackPanel>

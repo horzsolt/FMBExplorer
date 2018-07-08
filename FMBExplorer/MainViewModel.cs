@@ -43,6 +43,38 @@ namespace FMBExplorer
             }
         }
 
+        private string _generatedVMCode;
+        public string GeneratedVMCode
+        {
+
+            get
+            {
+                return _generatedVMCode;
+            }
+
+            set
+            {
+                _generatedVMCode = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("GeneratedVMCode"));
+            }
+        }
+
+        private string _generatedXAML;
+        public string GeneratedXAML
+        {
+
+            get
+            {
+                return _generatedXAML;
+            }
+
+            set
+            {
+                _generatedXAML = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("GeneratedXAML"));
+            }
+        }
+
         public Block selectedBlock { get; set; }
 
         private string _currentFolder;

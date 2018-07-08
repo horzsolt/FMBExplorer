@@ -21,7 +21,14 @@ namespace FMBExplorer.CodeGen
             using (StreamReader reader = new StreamReader(stream))
             {
                 string template = reader.ReadToEnd();
-                result = Engine.Razor.RunCompile(template, "textFieldTemplateKey", null, new { CollectionViewSourceName=codeGenProperties.CollectionViewSourceName, Name = item.Name, Row = counter, TextBox_Name = "txb_" + item.ColumnName, FieldName = item.ColumnName, Width = item.WpfWidth, Height = item.WpfHeight, Prompt = item.Prompt, Left = item.WpfXPosition, LabelLeft = labelPosition.Left, LabelTop = labelPosition.Top, Top = item.WpfYPosition });
+                result = Engine.Razor.RunCompile(template, "textFieldTemplateKey", null, new {
+                    ViewModelName = codeGenProperties.ViewModelName,
+                    EnabledPropertyName =codeGenProperties.EnabledPropertyName,
+                    CollectionViewSourceName = codeGenProperties.CollectionViewSourceName,
+                    Name = item.Name, Row = counter, TextBox_Name = "txb_" + item.ColumnName,
+                    FieldName = item.ColumnName, Width = item.WpfWidth, Height = item.WpfHeight,
+                    Prompt = item.Prompt, Left = item.WpfXPosition, LabelLeft = labelPosition.Left,
+                    LabelTop = labelPosition.Top, Top = item.WpfYPosition });
             }
 
             return result;
@@ -39,7 +46,14 @@ namespace FMBExplorer.CodeGen
             using (StreamReader reader = new StreamReader(stream))
             {
                 string template = reader.ReadToEnd();
-                result = Engine.Razor.RunCompile(template, "dateFieldTemplateKey", null, new { Name = item.Name, CollectionViewSourceName = codeGenProperties.CollectionViewSourceName, BindingSource = codeGenProperties.BindingSource, Row = counter, TextBox_Name = "txb_" + item.ColumnName, FieldName = item.ColumnName, Width = item.WpfWidth, Height = item.WpfHeight, Prompt = item.Prompt, Left = item.WpfXPosition, LabelLeft = labelPosition.Left, LabelTop = labelPosition.Top, Top = item.WpfYPosition });
+                result = Engine.Razor.RunCompile(template, "dateFieldTemplateKey", null, new {
+                    ViewModelName = codeGenProperties.ViewModelName,
+                    EnabledPropertyName = codeGenProperties.EnabledPropertyName,
+                    Name = item.Name, CollectionViewSourceName = codeGenProperties.CollectionViewSourceName,
+                    BindingSource = codeGenProperties.BindingSource, Row = counter, TextBox_Name = "txb_" + item.ColumnName,
+                    FieldName = item.ColumnName, Width = item.WpfWidth, Height = item.WpfHeight,
+                    Prompt = item.Prompt, Left = item.WpfXPosition, LabelLeft = labelPosition.Left, LabelTop = labelPosition.Top,
+                    Top = item.WpfYPosition });
             }
 
             return result;

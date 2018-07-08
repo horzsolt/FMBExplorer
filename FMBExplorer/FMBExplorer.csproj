@@ -66,8 +66,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="CodeGen\AbstractFieldGenerator.cs" />
+    <Compile Include="CodeGen\GenerateCodeBehind.cs" />
     <Compile Include="CodeGen\GenerateDataForm.cs" />
     <Compile Include="CodeGen\GenerateDataFormFields.cs" />
+    <Compile Include="CodeGen\GenerateViewModel.cs" />
     <Compile Include="Common\ObservableDictionary.cs" />
     <Compile Include="FormsElement\FormsUtility.cs" />
     <Compile Include="FormsElement\Position.cs" />
@@ -171,6 +173,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Templates\DateFormField.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Templates\ViewModelClass.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Templates\CodeBehindClass.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

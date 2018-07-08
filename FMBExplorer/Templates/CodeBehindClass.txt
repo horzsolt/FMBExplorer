@@ -1,0 +1,32 @@
+﻿using @Model.ViewModelName;
+using System.Data.Entity;
+using System.Windows;
+using System.Windows.Data;
+
+namespace @Model.CodebehindNamespace
+{
+    public partial class @Model.WindowName : Window
+    {
+        kkEntities context = new kkEntities();
+        CollectionViewSource @Model.CollectionViewSourceName;
+        @Model.ViewModelName vm = new @Model.ViewModelName();
+
+        public @Model.WindowName()
+        {
+            InitializeComponent();
+
+            @Model.CollectionViewSourceName = ((CollectionViewSource)(this.FindResource("@Model.CollectionViewSourceName")));
+
+            DataContext = this;
+            vm.Enabled = false;
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            context.KK2SPID_SET("002260", "zolo");
+            context.@Model.EntityName .Load();
+            @Model.CollectionViewSourceName .Source = context.@Model.EntityName .Local;
+        }
+
+    }
+}

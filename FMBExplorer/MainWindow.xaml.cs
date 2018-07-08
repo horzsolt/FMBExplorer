@@ -83,6 +83,11 @@ namespace FMBExplorer
                 codeGenProps.BindingSource = vm.selectedBlock.Name;
                 codeGenProps.Name = vm.selectedBlock.Name;
                 codeGenProps.CollectionViewSourceName = vm.selectedBlock.Name + "_ViewSource";
+                codeGenProps.EnabledPropertyName = vm.selectedBlock.Name + "_TxEnabled";
+                codeGenProps.ViewModelName = "ViewModel." + vm.selectedBlock.Name + "_VM";
+                codeGenProps.CodebehindNamespace = "Forms." + vm.selectedBlock.Name;
+                codeGenProps.WindowName = vm.selectedBlock.Name + "_Window";
+                codeGenProps.EntityName = vm.selectedBlock.Name + "_V";
 
                 if (FormsUtility.IsGrid(vm.selectedBlock))
                 {
@@ -101,13 +106,14 @@ namespace FMBExplorer
             } else
             {
                 vm.GeneratedCode = "";
+                vm.GeneratedXAML = "";
                 genCodeBtn.IsEnabled = false;
             }
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            Clipboard.SetText(vm.GeneratedCode);
+            Clipboard.SetText(vm.GeneratedXAML);
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
@@ -117,9 +123,9 @@ namespace FMBExplorer
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(vm.GeneratedCode))
+            if (!string.IsNullOrEmpty(vm.GeneratedXAML))
             {
-                Window previewWindow = (Window)XamlReader.Parse(vm.GeneratedCode);
+                Window previewWindow = (Window)XamlReader.Parse(vm.GeneratedXAML);
                 previewWindow.WindowState = WindowState.Maximized;
                 previewWindow.ShowDialog();
             }
@@ -149,7 +155,11 @@ namespace FMBExplorer
             xml_document.WriteTo(xml_text_writer);
 
             documentViewer.XmlDocument = xml_document;
-            vm.GeneratedCode = string_writer.ToString();
+            vm.GeneratedXAML = string_writer.ToString();
+            vm.GeneratedVMCode = GenerateViewModel.Generate(vm.selectedBlock, vm.CodeGenProperties);
+            vm.GeneratedCode = GenerateCodeBehind.Generate(vm.selectedBlock, vm.CodeGenProperties);
+
+            vm.GeneratedCode += "\n" + vm.GeneratedVMCode;
 
             xml_text_writer.Close();
             string_writer.Close();
